@@ -1,4 +1,4 @@
-name: Extract Apprentice Plus ZIP
+name: Extract and Build Apprentice Plus
 
 on:
   push:
@@ -9,23 +9,43 @@ permissions:
   contents: write
 
 jobs:
-  extract:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Extract ZIP
         run: |
+          rm -rf apprentice-plus
           unzip -o apprentice-plus.zip -d .
+          rm -f apprentice-plus.zip
 
-      - name: Delete ZIP
-        run: rm -f apprentice-plus.zip
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Commit changes
+      - name: Install packages
+        working-directory: apprentice-plus
+        run: npm install
+
+      - name: Build web app
+        working-directory: apprentice-plus
+        run: npx expo export --platform web
+
+      - name: Copy website to docs
+        run: |
+          rm -rf docs
+          mkdir docs
+          cp -R apprentice-plus/dist/. docs/
+          touch docs/.nojekyll
+
+      - name: Commit built website
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff --cached --quiet || git commit -m "Extract ZIP"
+          git add -A
+          git diff --cached --quiet || git commit -m "Build Apprentice Plus website"
           git push
