@@ -1,11 +1,43 @@
-      - name: Install packages
+name: Extract and Build Apprentice Plus
+
+on:
+  push:
+    paths:
+      - "apprentice-plus.zip"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Extract ZIP
+        run: |
+          set -e
+          rm -rf apprentice-plus
+          unzip -o apprentice-plus.zip -d .
+          rm -f apprentice-plus.zip
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: apprentice-plus/package-lock.json
+
+      - name: Install project packages
         working-directory: apprentice-plus
         run: npm install
 
-      - name: Install web dependencies
+      - name: Install web packages
         working-directory: apprentice-plus
-        run: |
-          npx expo install react-native-web react-dom @expo/metro-runtime
+        run: npx expo install react-native-web react-dom @expo/metro-runtime
 
       - name: Build web app
         working-directory: apprentice-plus
@@ -13,21 +45,16 @@
 
       - name: Copy website to docs
         run: |
+          set -e
           rm -rf docs
-          mkdir docs
-          cp -R apprentice-plus/dist/. docs/
-          touch docs/.nojekyll
-      - name: Copy website to docs
-        run: |
-          rm -rf docs
-          mkdir docs
+          mkdir -p docs
           cp -R apprentice-plus/dist/. docs/
           touch docs/.nojekyll
 
-      - name: Commit built website
+      - name: Commit extracted project and website
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "Build Apprentice Plus website"
+          git diff --cached --quiet || git commit -m "Extract and build Apprentice Plus"
           git push
