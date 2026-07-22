@@ -11,3 +11,5 @@ Included courses:
 - Architectural Joiner ST0264 v1.4
 
 The app stores entered evidence locally on the phone/browser.
+
+Build 1.5: automatic service-worker updates and a Settings > Check for updates button.

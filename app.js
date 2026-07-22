@@ -3,7 +3,10 @@ const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>[...p.querySelect
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){localStorage.setItem(k,JSON.stringify(v))}};
 let state=store.get('applus-state',{name:'Apprentice',courseId:'brick',xp:0,completed:{},drafts:{},rewards:[],tab:'home'});
 let view={tab:state.tab||'home',courseId:state.courseId||'brick',assignment:null,apprenticeshipTab:state.apprenticeshipTab||'assignments'};
+const APP_VERSION='1.5';
 let deferredInstallPrompt=null;
+let swRegistration=null;
+let refreshingForUpdate=false;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstallPrompt=e;});
 const course=()=>APP_COURSES.find(c=>c.id===view.courseId)||APP_COURSES[0];
 function save(){state.courseId=view.courseId;state.tab=view.tab;state.apprenticeshipTab=view.apprenticeshipTab;store.set('applus-state',state)}
@@ -11,7 +14,7 @@ function key(a){return `${view.courseId}-${a.number}`}
 function completedCount(c=course()){return c.assignments.filter(a=>state.completed[`${c.id}-${a.number}`]).length}
 function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function toast(t){document.body.insertAdjacentHTML('beforeend',`<div class="toast">${esc(t)}</div>`);setTimeout(()=>$('.toast')?.remove(),1800)}
-function header(title){return `<header class="header"><div class="brand"><img src="logo.png"><div><div class="eyebrow">APPRENTICE+</div><h1>${esc(title)}</h1><div class="subtitle">Your Course, Your Way</div><span class="build">Build 1.4</span></div></div></header>`}
+function header(title){return `<header class="header"><div class="brand"><img src="logo.png"><div><div class="eyebrow">APPRENTICE+</div><h1>${esc(title)}</h1><div class="subtitle">Your Course, Your Way</div><span class="build">Build ${APP_VERSION}</span></div></div></header>`}
 const nav=()=>`<nav class="nav">${[['home','⌂','Home'],['academy','☆','Academy'],['apprenticeship','▣','Apprenticeship'],['documents','▤','Documents'],['settings','⚙','Settings']].map(([id,i,l])=>`<button data-tab="${id}" class="${view.tab===id?'active':''}"><span class="ico">${i}</span>${l}</button>`).join('')}</nav>`;
 function shell(title,body){$('#app').innerHTML=`<div class="app">${header(title)}<main class="main">${body}</main>${nav()}</div>`;$$('[data-tab]').forEach(b=>b.onclick=()=>{view.tab=b.dataset.tab;view.assignment=null;save();render()})}
 function render(){if(view.assignment)return renderAssignment();({home:renderHome,academy:renderAcademy,apprenticeship:renderApprenticeship,documents:renderDocuments,settings:renderSettings}[view.tab]||renderHome)()}
@@ -114,10 +117,23 @@ function renderAssignment(){
   $('#complete').onclick=()=>{let nowReady=words(d.text)>=100&&a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length===6&&d.photos.filter(Boolean).length===6;if(!nowReady)return;if(!state.completed[key(a)]){state.completed[key(a)]={date:new Date().toISOString(),title:a.title,course:course().name};state.xp=(state.xp||0)+1000;save();toast('Assignment completed — 1,000 XP awarded')}setTimeout(()=>{view.assignment=null;render()},700)};
 }
 function renderDocuments(){let entries=Object.entries(state.completed);shell('Documents',`<div class="card"><h2>Assignment documents</h2><p class="muted">Completed evidence can be opened and printed or saved as a PDF from your browser.</p></div>${entries.length?`<div class="list">${entries.map(([k,v])=>`<div class="assignment" data-doc="${k}"><div class="num">✓</div><div class="grow"><h3>${esc(v.course)} — ${esc(v.title)}</h3><div class="muted">Completed ${new Date(v.date).toLocaleDateString()}</div></div><span>›</span></div>`).join('')}</div>`:`<div class="card empty">No completed assignments yet.</div>`}`);$$('[data-doc]').forEach(x=>x.onclick=()=>{let [cid,num]=x.dataset.doc.split(/-(?=\d+$)/);view.courseId=cid;view.assignment=Number(num);renderAssignment();setTimeout(()=>window.print(),300)})}
-function renderSettings(){shell('Settings',`<div class="card"><h2>Profile</h2><div class="form-row"><label>Apprentice name</label><input id="name" value="${esc(state.name)}"></div><div class="form-row"><label>Selected course</label><select id="setCourse">${APP_COURSES.map(c=>`<option value="${c.id}" ${c.id===view.courseId?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><button class="btn btn-primary" id="saveSettings">Save settings</button></div><div class="card"><h2>App data</h2><p class="muted">Your evidence is stored locally on this device.</p><button class="btn btn-secondary" id="export">Export backup</button> <button class="btn btn-danger" id="reset">Reset app</button></div><div class="card install-card"><h2>Install Apprentice+</h2><p class="muted">Install the full app version directly onto this phone for quick access and offline use.</p><button class="btn btn-primary" id="installApp">Install app</button><p class="install-note" id="installNote"></p></div>`);
+function renderSettings(){shell('Settings',`<div class="card"><h2>Profile</h2><div class="form-row"><label>Apprentice name</label><input id="name" value="${esc(state.name)}"></div><div class="form-row"><label>Selected course</label><select id="setCourse">${APP_COURSES.map(c=>`<option value="${c.id}" ${c.id===view.courseId?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><button class="btn btn-primary" id="saveSettings">Save settings</button></div><div class="card update-card"><h2>App updates</h2><p class="muted">Current version: Build ${APP_VERSION}. Check GitHub for the newest files without clearing Chrome history.</p><button class="btn btn-primary" id="checkUpdates">Check for updates</button><p class="install-note" id="updateNote">The app also checks automatically whenever it opens.</p></div><div class="card"><h2>App data</h2><p class="muted">Your evidence is stored locally on this device.</p><button class="btn btn-secondary" id="export">Export backup</button> <button class="btn btn-danger" id="reset">Reset app</button></div><div class="card install-card"><h2>Install Apprentice+</h2><p class="muted">Install the full app version directly onto this phone for quick access and offline use.</p><button class="btn btn-primary" id="installApp">Install app</button><p class="install-note" id="installNote"></p></div>`);
   $('#saveSettings').onclick=()=>{state.name=$('#name').value.trim()||'Apprentice';view.courseId=$('#setCourse').value;save();toast('Settings saved');render()};
   $('#export').onclick=()=>{let b=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='apprentice-plus-backup.json';a.click();URL.revokeObjectURL(u)};
   $('#reset').onclick=()=>{if(confirm('Delete all local Apprentice+ data?')){localStorage.removeItem('applus-state');location.reload()}};
+  $('#checkUpdates').onclick=async()=>{
+    const button=$('#checkUpdates'),note=$('#updateNote');
+    button.disabled=true;button.textContent='Checking…';note.textContent='Checking GitHub for a newer build…';
+    try{
+      const response=await fetch(`version.json?t=${Date.now()}`,{cache:'no-store'});
+      const latest=response.ok?await response.json():null;
+      const reg=swRegistration||await navigator.serviceWorker?.getRegistration();
+      if(reg){await reg.update();if(reg.waiting){note.textContent='Update found. Installing now…';reg.waiting.postMessage({type:'SKIP_WAITING'});return}}
+      if(latest&&latest.version!==APP_VERSION){note.textContent=`Build ${latest.version} is available. Reloading the newest version…`;setTimeout(()=>location.reload(),500);return}
+      note.textContent=`Build ${APP_VERSION} is up to date.`;
+    }catch(error){note.textContent='Could not check right now. Check your internet connection and try again.'}
+    finally{button.disabled=false;button.textContent='Check for updates'}
+  };
   $('#installApp').onclick=async()=>{
     const note=$('#installNote');
     if(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone){note.textContent='Apprentice+ is already installed on this phone.';return}
@@ -125,4 +141,13 @@ function renderSettings(){shell('Settings',`<div class="card"><h2>Profile</h2><d
     note.textContent='Open this page in Chrome, then press Install app again.';
   };
 }
-if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js');render();
+if('serviceWorker'in navigator){
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshingForUpdate)return;refreshingForUpdate=true;location.reload()});
+  navigator.serviceWorker.register('service-worker.js',{updateViaCache:'none'}).then(reg=>{
+    swRegistration=reg;
+    if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});
+    reg.addEventListener('updatefound',()=>{const worker=reg.installing;if(!worker)return;worker.addEventListener('statechange',()=>{if(worker.state==='installed'&&navigator.serviceWorker.controller)worker.postMessage({type:'SKIP_WAITING'})})});
+    reg.update().catch(()=>{});
+  }).catch(()=>{});
+}
+render();
