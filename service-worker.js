@@ -1,6 +1,6 @@
-const VERSION='1.8';
+const VERSION='2.4';
 const CACHE=`applus-${VERSION}`;
-const CORE=['./','index.html','app.css','app.js','courses.js','manifest.json','version.json','logo.png','icon-192.png','icon-512.png'];
+const CORE=['./','index.html','app.css','app.js','courses.js','academy-questions.js','manifest.json','version.json','logo.png','icon-192.png','icon-512.png'];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));
@@ -30,7 +30,7 @@ self.addEventListener('fetch',event=>{
     return;
   }
 
-  const networkFirst=['app.js','app.css','courses.js','manifest.json','version.json','service-worker.js','index.html'];
+  const networkFirst=['app.js','app.css','courses.js','academy-questions.js','manifest.json','version.json','service-worker.js','index.html'];
   if(networkFirst.some(name=>url.pathname.endsWith(name))){
     event.respondWith(fetch(event.request,{cache:'no-store'}).then(response=>{
       if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}

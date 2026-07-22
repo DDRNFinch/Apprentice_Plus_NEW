@@ -33,66 +33,11 @@ function academyModules(c=course()){
   }));
 }
 function academyQuestions(m){
+  const bank=window.ACADEMY_QUESTION_BANK?.[course().id]?.[m.assignmentNumber];
+  if(bank&&bank.length===10)return bank.map(item=>({q:item.q,options:item.options,answer:item.answer,ksb:item.ksb}));
   const a=m.assignment;
-  const entries=(a.ksbs||[]).map(raw=>({
-    code:ksbCode(raw),
-    text:String(raw).replace(/^[KSB]\d+\s*:\s*/i,'').trim().replace(/\.$/,'')
-  }));
-  const clean=t=>String(t||'').replace(/\s+/g,' ').trim();
-  const short=t=>{const x=clean(t);return x.length>210?x.slice(0,207)+'…':x};
-  const topic=e=>{
-    const t=e.text.toLowerCase();
-    if(/health|safety|coshh|rpe|ppe|hazard|risk|fire|manual handling|height|puwer/.test(t)) return 'health and safety';
-    if(/drawing|specification|information|document|digital|bim/.test(t)) return 'drawings and technical information';
-    if(/communication|team|colleague|customer|client/.test(t)) return 'communication and teamwork';
-    if(/environment|waste|recycl|sustain/.test(t)) return 'environmental responsibility';
-    if(/quality|standard|tolerance|inspect|check/.test(t)) return 'quality control';
-    if(/tool|equipment|plant|machine/.test(t)) return 'tools and equipment';
-    if(/material|mortar|timber|brick|component/.test(t)) return 'materials and components';
-    if(/behaviour|professional|develop|wellbeing|inclusive/.test(t)) return 'professional behaviour';
-    return 'the mapped KSB requirement';
-  };
-  const make=(e,i)=>{
-    const requirement=short(e.text), area=topic(e);
-    const correct=[
-      `Apply the full requirement: ${requirement}.`,
-      `Check the task against ${requirement}, record the result and correct any non-conformance before continuing.`,
-      `Use the current assignment information and demonstrate ${requirement} through the work and evidence produced.`,
-      `Stop at a safe point, assess the issue against ${requirement}, report it where necessary and use an approved corrective action.`
-    ][i%4];
-    const distractors=[
-      `Treat ${area} as optional because the assignment is familiar.`,
-      `Rely on experience alone without checking the current requirement or recording evidence.`,
-      `Continue the task and only address problems after the work has been covered or handed over.`,
-      `Use a quicker method even when it does not fully meet the stated KSB requirement.`
-    ];
-    const questions=[
-      `For ${e.code}, which statement most accurately describes the ${area} knowledge or practice required in “${a.title}”?`,
-      `During “${a.title}”, which action best demonstrates ${e.code} in relation to ${area}?`,
-      `Before starting this assignment, what should be confirmed to satisfy ${e.code}: ${short(requirement)}?`,
-      `A problem occurs during “${a.title}”. Which response best follows ${e.code} and the requirement for ${area}?`,
-      `Which evidence would most strongly prove that ${e.code} was applied correctly in this assignment?`,
-      `Which decision would be a clear failure to meet ${e.code} during “${a.title}”?`,
-      `How should ${e.code} affect the apprentice's choice of method, tools, materials or controls?`,
-      `What should the apprentice explain in the activity statement to evidence ${e.code}?`,
-      `Which final check is most relevant to ${e.code} before the assignment is completed?`,
-      `Which answer best links ${e.code} directly to the practical work in “${a.title}”?`
-    ];
-    let good=correct;
-    if(i===4) good=`Photographs, measurements, checks, records or witness evidence that clearly show: ${requirement}.`;
-    if(i===5){good=distractors[0]; return {q:questions[i],correct:good,wrong:[correct,distractors[1],distractors[2]]};}
-    if(i===7) good=`Explain what was done, why it was required, how ${requirement.toLowerCase()} influenced the work, and how the result was checked.`;
-    if(i===8) good=`Inspect the completed work and confirm that ${requirement.toLowerCase()} has been met before handover.`;
-    return {q:questions[i],correct:good,wrong:distractors.slice(0,3)};
-  };
-  const fallback={code:'KSB',text:a.title};
-  return Array.from({length:10},(_,i)=>{
-    const e=entries[i%Math.max(entries.length,1)]||fallback;
-    const item=make(e,i);
-    const options=[item.correct,...item.wrong];
-    const shift=(i*3)%4,rotated=options.slice(shift).concat(options.slice(0,shift));
-    return {q:item.q,options:rotated,answer:rotated.indexOf(item.correct),ksb:e.code};
-  });
+  const entries=(a.ksbs||[]).map(raw=>({code:ksbCode(raw),text:String(raw).replace(/^[KSB]\d+\s*:\s*/i,'').trim()}));
+  return Array.from({length:10},(_,i)=>{const e=entries[i%entries.length];return {q:`Which action best demonstrates ${e.code} during ${a.title}?`,options:[e.text,'Ignore the stated requirement','Continue without checking the specification','Use an unapproved shortcut'],answer:0,ksb:e.code}});
 }
 function renderAcademy(){
   const c=course();
