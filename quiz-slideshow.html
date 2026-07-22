@@ -90,7 +90,7 @@
         }
 
         .question-text {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: #333;
             margin-bottom: 30px;
@@ -115,7 +115,7 @@
             font-weight: 500;
         }
 
-        .option-btn:hover {
+        .option-btn:hover:not(:disabled) {
             border-color: #667eea;
             background: #f8f9ff;
             transform: translateX(5px);
@@ -336,8 +336,25 @@
         </div>
     </div>
 
-    <script src="academy-questions.js"></script>
     <script>
+        // Load questions from academy-questions.js
+        let ACADEMY_QUESTION_BANK = {};
+
+        // Fetch and load the questions
+        fetch('academy-questions.js')
+            .then(response => response.text())
+            .then(data => {
+                eval(data);
+                window.ACADEMY_QUESTION_BANK = ACADEMY_QUESTION_BANK;
+                initTrades();
+            })
+            .catch(error => {
+                console.error('Error loading questions:', error);
+                // Fallback: Show error message
+                document.getElementById('tradeScreen').querySelector('.content').innerHTML = 
+                    '<p style="color: red; font-size: 16px;">Error loading questions. Please ensure academy-questions.js exists in the same directory.</p>';
+            });
+
         let currentTrade = null;
         let currentLevel = null;
         let currentQuestion = 0;
@@ -353,12 +370,17 @@
 
         function initTrades() {
             const tradeList = document.getElementById('tradeList');
+            if (!window.ACADEMY_QUESTION_BANK || Object.keys(window.ACADEMY_QUESTION_BANK).length === 0) {
+                tradeList.innerHTML = '<p>No trades available</p>';
+                return;
+            }
+            
             const trades = Object.keys(window.ACADEMY_QUESTION_BANK);
             
             trades.forEach(trade => {
                 const btn = document.createElement('button');
                 btn.className = 'trade-btn';
-                btn.textContent = trade;
+                btn.textContent = trade.charAt(0).toUpperCase() + trade.slice(1);
                 btn.onclick = () => selectTrade(trade);
                 tradeList.appendChild(btn);
             });
@@ -376,7 +398,7 @@
         function showLevels(trade) {
             const levelList = document.getElementById('levelList');
             levelList.innerHTML = '';
-            const levels = Object.keys(window.ACADEMY_QUESTION_BANK[trade]);
+            const levels = Object.keys(window.ACADEMY_QUESTION_BANK[trade]).sort((a, b) => a - b);
             
             levels.forEach(level => {
                 const btn = document.createElement('button');
@@ -430,6 +452,7 @@
             
             allButtons.forEach(b => b.disabled = true);
             
+            const question = questions[currentQuestion];
             if (question.answer !== undefined && index === question.answer) {
                 btn.classList.add('correct');
                 score++;
@@ -482,16 +505,6 @@
             document.getElementById('summaryTitle').textContent = 
                 `${currentTrade.toUpperCase()} - Module ${currentLevel}`;
         }
-
-        // Get reference to current question
-        Object.defineProperty(window, 'question', {
-            get: function() {
-                return questions[currentQuestion];
-            }
-        });
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', initTrades);
     </script>
 </body>
 </html>
