@@ -4,7 +4,7 @@ const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{re
 let state=store.get('applus-state',{name:'Apprentice',courseId:'brick',xp:0,completed:{},drafts:{},rewards:[],academyPassed:{},academyScores:{},witnessTestimonies:{},tab:'home'});
 state.academyPassed=state.academyPassed||{}; state.academyScores=state.academyScores||{}; state.witnessTestimonies=state.witnessTestimonies||{};
 let view={tab:state.tab||'home',courseId:state.courseId||'brick',assignment:null,academyModule:null,witnessAssignment:null,apprenticeshipTab:state.apprenticeshipTab||'assignments'};
-const APP_VERSION='1.8';
+const APP_VERSION='1.9';
 let deferredInstallPrompt=null;
 let swRegistration=null;
 let refreshingForUpdate=false;
@@ -158,33 +158,11 @@ function openPhotoChooser(index,onPick,prompt,title){
 }
 const photoTitles=['Preparation','PPE','Safe Working','Technique','Quality Checks','Finished Work'];
 function concisePrompt(p){
-  const text=`${p.keyword||''} ${p.detail||''}`.toLowerCase();
-  const rules=[
-    [/personal protective|\bppe\b|respiratory protective|\brpe\b/,'PPE'],
-    [/risk assessment/,'Risk assessment'],[/method statement/,'Method statement'],
-    [/health and safety|safe systems|safe working|safety regulations/,'Safe working'],
-    [/environment|sustainab|recycl|reuse|waste|contamination/,'Environment'],
-    [/communication|communicat|information sharing/,'Communication'],
-    [/equality|diversity|inclusion|inclusive/,'Inclusion'],[/wellbeing|welfare/,'Wellbeing'],
-    [/drawing|specification|technical information/,'Drawings'],[/digital/,'Digital tools'],
-    [/tool|equipment|machinery/,'Tools'],[/material|timber|brick|block|mortar/,'Materials'],
-    [/measure|setting out|dimension/,'Measurements'],[/cut|sawing/,'Cutting'],
-    [/quality|check|inspection|tolerance/,'Quality checks'],[/customer|client/,'Customer care'],
-    [/team|colleague|others/,'Teamwork'],[/problem|defect|fault/,'Problem solving'],
-    [/regulation|standard|legislation|building control/,'Regulations'],[/professional development|development/,'Development'],
-    [/cavity/,'Cavity wall'],[/solid wall/,'Solid wall'],[/joint finish|pointing/,'Joint finish'],
-    [/brick on edge|soldier/,'Special brickwork'],[/roof/,'Roof work'],[/door/,'Door fitting'],
-    [/window/,'Window fitting'],[/stair/,'Stair work'],[/floor/,'Flooring'],[/wall unit|cabinet/,'Cabinet work'],
-    [/joint/,'Joints'],[/finish/,'Finishing']
-  ];
-  for(const [re,label] of rules) if(re.test(text)) return label;
-  const stop=new Set(['the','and','with','from','into','that','this','their','they','how','use','using','used','work','working','carry','carrying','out','comply','identify','put','awareness','importance','considerations','associated','activities','requirements','principles','impact','role','of','to','in','on','for','a','an']);
-  const words=(p.detail||p.keyword||'KSB prompt').replace(/[^a-zA-Z0-9 ]/g,' ').split(/\s+/).filter(w=>w&&!stop.has(w.toLowerCase()));
-  return words.slice(0,2).join(' ')||'KSB prompt';
+  return String(p.keyword||p.ksb||'KSB topic').trim();
 }
 function renderAssignment(){
-  let a=course().assignments.find(x=>x.number===view.assignment),d=getDraft(a),wc=words(d.text),hits=a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length,photos=d.photos.filter(Boolean).length,ready=wc>=100&&hits===6&&photos===6;
-  shell(`Assignment ${a.number}`,`<button class="back" id="back">← Back to assignments</button><div class="card assignment-heading"><span class="tag">${esc(course().reference)}</span><h2>Assignment ${a.number}: ${esc(a.title)}</h2><div class="pillrow">${a.ksbs.map(k=>`<span class="ksb">${esc(k.match(/^[SKB]\d+/)?.[0]||'KSB')}</span>`).join('')}</div></div><div class="card"><h2>Photographic evidence</h2><p class="muted">Add all six photographs. Select a space to use the camera or choose a photo from your phone gallery.</p><div class="photo-grid">${a.photoPrompts.map((p,i)=>`<div class="photo-slot" data-slot="${i}">${d.photos[i]?`<img src="${d.photos[i]}"><button class="remove" data-remove="${i}">×</button>`:`<div class="photo-placeholder"><span class="photo-icon">＋</span><b>${esc(photoTitles[i]||`Photo ${i+1}`)}</b><small>${esc(p.replace(/^Show\s+/i,'').slice(0,68))}</small></div>`}</div>`).join('')}</div></div><div class="card statement-card"><h2>Activity statement</h2><p>Explain what you did, tools, equipment and materials used, safe working, quality checks and how you solved problems.</p><div id="prompts">${a.statementPrompts.map((p,i)=>`<div class="prompt ${promptHit(d.text,concisePrompt(p))?'ok':''}" data-prompt="${i}"><div class="prompt-head"><span class="dot"></span><span>${esc(concisePrompt(p))}</span><small class="muted">${esc(p.ksb)}</small><button class="info" type="button">i</button></div><div class="detail"><b>Suggested things to discuss:</b><div class="suggestions">${suggestedPoints(p).map(x=>`<span>${esc(x)}</span>`).join('')}</div></div></div>`).join('')}</div><textarea class="textarea" id="statement" rows="12" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="Write your full activity statement here. Minimum 100 words...">${esc(d.text)}</textarea><div class="counter"><span id="wordcount">${wc} / 100 words</span><span id="promptcount">${hits} / 6 prompts</span></div></div><div class="completion"><div class="completion-status"><b id="completionText">${photos}/6 photos · ${wc}/100 words · ${hits}/6 prompts</b></div><button class="btn btn-primary" id="complete" ${ready?'':'disabled'}>${state.completed[key(a)]?'Assignment completed':'Complete assignment'}</button></div>`);
+  let a=course().assignments.find(x=>x.number===view.assignment),d=getDraft(a),wc=words(d.text),hits=a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length,photos=d.photos.filter(Boolean).length,ready=wc>=100&&hits===a.statementPrompts.length&&photos===6;
+  shell(`Assignment ${a.number}`,`<button class="back" id="back">← Back to assignments</button><div class="card assignment-heading"><span class="tag">${esc(course().reference)}</span><h2>Assignment ${a.number}: ${esc(a.title)}</h2><div class="pillrow">${a.ksbs.map(k=>`<span class="ksb">${esc(k.match(/^[SKB]\d+/)?.[0]||'KSB')}</span>`).join('')}</div></div><div class="card"><h2>Photographic evidence</h2><p class="muted">Add all six photographs. Select a space to use the camera or choose a photo from your phone gallery.</p><div class="photo-grid">${a.photoPrompts.map((p,i)=>`<div class="photo-slot" data-slot="${i}">${d.photos[i]?`<img src="${d.photos[i]}"><button class="remove" data-remove="${i}">×</button>`:`<div class="photo-placeholder"><span class="photo-icon">＋</span><b>${esc(photoTitles[i]||`Photo ${i+1}`)}</b><small>${esc(p.replace(/^Show\s+/i,'').slice(0,68))}</small></div>`}</div>`).join('')}</div></div><div class="card statement-card"><h2>Activity statement</h2><p>Explain what you did, tools, equipment and materials used, safe working, quality checks and how you solved problems.</p><div id="prompts">${a.statementPrompts.map((p,i)=>`<div class="prompt ${promptHit(d.text,concisePrompt(p))?'ok':''}" data-prompt="${i}"><div class="prompt-head"><span class="dot"></span><span>${esc(concisePrompt(p))}</span><small class="muted">${esc(p.ksb)}</small><button class="info" type="button">i</button></div><div class="detail"><b>Suggested things to discuss:</b><div class="suggestions">${suggestedPoints(p).map(x=>`<span>${esc(x)}</span>`).join('')}</div></div></div>`).join('')}</div><textarea class="textarea" id="statement" rows="12" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="Write your full activity statement here. Minimum 100 words...">${esc(d.text)}</textarea><div class="counter"><span id="wordcount">${wc} / 100 words</span><span id="promptcount">${hits} / ${a.statementPrompts.length} prompts</span></div></div><div class="completion"><div class="completion-status"><b id="completionText">${photos}/6 photos · ${wc}/100 words · ${hits}/6 prompts</b></div><button class="btn btn-primary" id="complete" ${ready?'':'disabled'}>${state.completed[key(a)]?'Assignment completed':'Complete assignment'}</button></div>`);
   $('#back').onclick=()=>{view.assignment=null;render()};
   $$('.info').forEach(b=>b.onclick=e=>{e.stopPropagation();b.closest('.prompt').querySelector('.detail').classList.toggle('open')});
   $$('[data-slot]').forEach(slot=>slot.onclick=e=>{if(e.target.closest('.remove'))return;openPhotoChooser(Number(slot.dataset.slot),(data,i)=>{d.photos[i]=data;state.drafts[key(a)]=d;save();renderAssignment()},a.photoPrompts[Number(slot.dataset.slot)],photoTitles[Number(slot.dataset.slot)]||`Photo ${Number(slot.dataset.slot)+1}`)});
@@ -192,12 +170,12 @@ function renderAssignment(){
   const ta=$('#statement');
   ta.oninput=e=>{
     d.text=e.target.value;state.drafts[key(a)]=d;save();
-    const currentWords=words(d.text),currentHits=a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length,currentPhotos=d.photos.filter(Boolean).length,currentReady=currentWords>=100&&currentHits===6&&currentPhotos===6;
+    const currentWords=words(d.text),currentHits=a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length,currentPhotos=d.photos.filter(Boolean).length,currentReady=currentWords>=100&&currentHits===a.statementPrompts.length&&currentPhotos===6;
     $('#wordcount').textContent=`${currentWords} / 100 words`;$('#promptcount').textContent=`${currentHits} / 6 prompts`;$('#completionText').textContent=`${currentPhotos}/6 photos · ${currentWords}/100 words · ${currentHits}/6 prompts`;
     a.statementPrompts.forEach((p,i)=>document.querySelector(`[data-prompt="${i}"]`)?.classList.toggle('ok',promptHit(d.text,concisePrompt(p))));
     const complete=$('#complete');complete.disabled=!currentReady;
   };
-  $('#complete').onclick=()=>{let nowReady=words(d.text)>=100&&a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length===6&&d.photos.filter(Boolean).length===6;if(!nowReady)return;if(!state.completed[key(a)]){state.completed[key(a)]={date:new Date().toISOString(),title:a.title,course:course().name};state.xp=(state.xp||0)+1000;save();toast('Assignment completed — 1,000 XP awarded')}setTimeout(()=>{view.assignment=null;render()},700)};
+  $('#complete').onclick=()=>{let nowReady=words(d.text)>=100&&a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length===a.statementPrompts.length&&d.photos.filter(Boolean).length===6;if(!nowReady)return;if(!state.completed[key(a)]){state.completed[key(a)]={date:new Date().toISOString(),title:a.title,course:course().name};state.xp=(state.xp||0)+1000;save();toast('Assignment completed — 1,000 XP awarded')}setTimeout(()=>{view.assignment=null;render()},700)};
 }
 function renderDocuments(){let entries=Object.entries(state.completed);shell('Documents',`<div class="card"><h2>Assignment documents</h2><p class="muted">Completed evidence can be opened and printed or saved as a PDF from your browser.</p></div>${entries.length?`<div class="list">${entries.map(([k,v])=>`<div class="assignment" data-doc="${k}"><div class="num">✓</div><div class="grow"><h3>${esc(v.course)} — ${esc(v.title)}</h3><div class="muted">Completed ${new Date(v.date).toLocaleDateString()}</div></div><span>›</span></div>`).join('')}</div>`:`<div class="card empty">No completed assignments yet.</div>`}`);$$('[data-doc]').forEach(x=>x.onclick=()=>{let [cid,num]=x.dataset.doc.split(/-(?=\d+$)/);view.courseId=cid;view.assignment=Number(num);renderAssignment();setTimeout(()=>window.print(),300)})}
 function renderSettings(){

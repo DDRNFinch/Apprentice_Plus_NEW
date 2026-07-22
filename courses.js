@@ -39,34 +39,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Awareness health safety",
-            "detail": "Awareness of health and safety regulations, standards, and guidance and impact on role. Control of Substances Hazardous to Health (CoSHH). Fire safety. Health and Safety at Work Act. Asbestos awareness. Manual handling. signage, fire extinguishers. Safety signage. Situational awareness. Slips, trips, and falls. Working in confined spaces. Working at height. Electrical safety respiratory protective equipment (RPE), dust suppression",
-            "ksb": "K1"
-          },
-          {
-            "keyword": "Safety control equipment",
-            "detail": "Safety control equipment and how to use personal protective equipment (PPE)",
-            "ksb": "K2"
-          },
-          {
-            "keyword": "Safe systems work",
-            "detail": "Safe systems of work: Site inductions, toolbox talks, risk assessments, method statements and hazard identification in the work area",
-            "ksb": "K3"
-          },
-          {
-            "keyword": "Put health safety",
-            "detail": "Put health, safety and wellbeing first",
-            "ksb": "B1"
-          },
-          {
-            "keyword": "Comply health safety",
+            "keyword": "Safety compliance",
             "detail": "Comply with health and safety regulations, standards, and guidance",
             "ksb": "S1"
           },
           {
-            "keyword": "Identify personal protective",
+            "keyword": "PPE selection",
             "detail": "Identify and use personal protective equipment (PPE)",
             "ksb": "S2"
+          },
+          {
+            "keyword": "Safety awareness",
+            "detail": "Awareness of health and safety regulations, standards, and guidance and impact on role. Control of Substances Hazardous to Health (CoSHH). Fire safety. Health and Safety at Work Act. Asbestos awareness. Manual handling. signage, fire extinguishers. Safety signage. Situational awareness. Slips, trips, and falls. Working in confined spaces. Working at height. Electrical safety respiratory protective equipment (RPE), dust suppression",
+            "ksb": "K1"
+          },
+          {
+            "keyword": "Safety controls",
+            "detail": "Safety control equipment and how to use personal protective equipment (PPE)",
+            "ksb": "K2"
+          },
+          {
+            "keyword": "Safe systems",
+            "detail": "Safe systems of work: Site inductions, toolbox talks, risk assessments, method statements and hazard identification in the work area",
+            "ksb": "K3"
+          },
+          {
+            "keyword": "Safety priority",
+            "detail": "Put health, safety and wellbeing first",
+            "ksb": "B1"
           }
         ]
       },
@@ -103,34 +103,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Impact sector environment",
-            "detail": "Impact of the sector on the environment: Efficient use of resources. Recycling, reuse, surface water contamination and safe disposal of waste",
-            "ksb": "K4"
-          },
-          {
-            "keyword": "importance considerations environment",
-            "detail": "The importance and considerations of the environment and sustainability: Thermal qualities, airtightness and ventilation in buildings",
-            "ksb": "K5"
-          },
-          {
-            "keyword": "Standards regulations bricklaying",
-            "detail": "Standards and regulations associated with bricklaying activities: British standards, building regulations and warranty provider standards",
-            "ksb": "K7"
-          },
-          {
-            "keyword": "Consider environment when",
-            "detail": "Consider the environment when using resources and carrying out processes",
-            "ksb": "B2"
-          },
-          {
-            "keyword": "Comply environmental sustainability",
+            "keyword": "Sustainable practice",
             "detail": "Comply with environmental and sustainability regulations, standards, and guidance. Segregate resources for reuse, recycling and disposal",
             "ksb": "S3"
           },
           {
-            "keyword": "Comply industry regulations",
+            "keyword": "Regulatory compliance",
             "detail": "Comply with industry regulations, standards, and guidance",
             "ksb": "S4"
+          },
+          {
+            "keyword": "Environmental impact",
+            "detail": "Impact of the sector on the environment: Efficient use of resources. Recycling, reuse, surface water contamination and safe disposal of waste",
+            "ksb": "K4"
+          },
+          {
+            "keyword": "Sustainable buildings",
+            "detail": "The importance and considerations of the environment and sustainability: Thermal qualities, airtightness and ventilation in buildings",
+            "ksb": "K5"
+          },
+          {
+            "keyword": "Industry standards",
+            "detail": "Standards and regulations associated with bricklaying activities: British standards, building regulations and warranty provider standards",
+            "ksb": "K7"
+          },
+          {
+            "keyword": "Environmental care",
+            "detail": "Consider the environment when using resources and carrying out processes",
+            "ksb": "B2"
           }
         ]
       },
@@ -164,34 +164,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "interpreting extracting relevant",
-            "detail": "Methods of interpreting and extracting relevant information from drawings and specifications",
-            "ksb": "K10"
-          },
-          {
-            "keyword": "Modern construction Rapid",
-            "detail": "Modern methods of construction: Rapid build technology, precast components, corner profiles, alternative frame and cladding systems, masonry support systems",
-            "ksb": "K9"
-          },
-          {
-            "keyword": "Basic digital design",
-            "detail": "Basic principles of digital design and modelling systems",
-            "ksb": "K11"
-          },
-          {
-            "keyword": "Read interpret information",
+            "keyword": "Drawing interpretation",
             "detail": "Read and interpret information from drawings and specifications",
             "ksb": "S5"
           },
           {
-            "keyword": "Prepare maintain safe",
+            "keyword": "Safe workspace",
             "detail": "Prepare and maintain a safe working area",
             "ksb": "S7"
           },
           {
-            "keyword": "interpreting extracting relevant 2",
+            "keyword": "Knowledge Drawing",
             "detail": "Methods of interpreting and extracting relevant information from drawings and specifications",
             "ksb": "K10"
+          },
+          {
+            "keyword": "Modern methods",
+            "detail": "Modern methods of construction: Rapid build technology, precast components, corner profiles, alternative frame and cladding systems, masonry support systems",
+            "ksb": "K9"
+          },
+          {
+            "keyword": "Digital design",
+            "detail": "Basic principles of digital design and modelling systems",
+            "ksb": "K11"
           }
         ]
       },
@@ -223,34 +218,24 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Materials characteristics Bricks",
-            "detail": "Materials and their characteristics: Bricks and blocks, efflorescence, mortar, damp proof courses (DPC), wall ties, plasticisers, concrete and steel lintels, Rolled Steel Joist (RSJ), fire stopping, insulation, cement and building sand",
-            "ksb": "K8"
-          },
-          {
-            "keyword": "building Foundations roofs",
-            "detail": "Principles of building: Foundations, roofs, walls, cavity step trays, floors, utilities and services, insulation, fire, moisture and air protection, damp proof courses, the use of brick ties and quality of materials",
-            "ksb": "K6"
-          },
-          {
-            "keyword": "Simple resource estimation",
-            "detail": "Simple resource estimation techniques: Quantity of bricks and blocks, amount of mortar, quantity of wall ties, DPCs, cavity trays and lintels",
-            "ksb": "K12"
-          },
-          {
-            "keyword": "Estimate select required",
+            "keyword": "Material quantities",
             "detail": "Estimate and select required resources: For example, the quantity of bricks and blocks, mortar, wall ties and insulation",
             "ksb": "S6"
           },
           {
-            "keyword": "Materials characteristics Bricks 2",
+            "keyword": "Material properties",
             "detail": "Materials and their characteristics: Bricks and blocks, efflorescence, mortar, damp proof courses (DPC), wall ties, plasticisers, concrete and steel lintels, Rolled Steel Joist (RSJ), fire stopping, insulation, cement and building sand",
             "ksb": "K8"
           },
           {
-            "keyword": "building Foundations roofs 2",
+            "keyword": "Building principles",
             "detail": "Principles of building: Foundations, roofs, walls, cavity step trays, floors, utilities and services, insulation, fire, moisture and air protection, damp proof courses, the use of brick ties and quality of materials",
             "ksb": "K6"
+          },
+          {
+            "keyword": "Resource estimates",
+            "detail": "Simple resource estimation techniques: Quantity of bricks and blocks, amount of mortar, quantity of wall ties, DPCs, cavity trays and lintels",
+            "ksb": "K12"
           }
         ]
       },
@@ -285,34 +270,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Hand tool maintenance",
-            "detail": "Hand tool use, maintenance and storage: Levels, measures, hammers, bolsters, brick hammers, trowels, brick jointer, line blocks and pins, scutch, chariot and brick clamps",
-            "ksb": "K13"
-          },
-          {
-            "keyword": "Power tool limitations",
-            "detail": "Power tool use and limitations: Disc cutters, mixers and drills",
-            "ksb": "K14"
-          },
-          {
-            "keyword": "Put health safety",
-            "detail": "Put health, safety and wellbeing first",
-            "ksb": "B1"
-          },
-          {
-            "keyword": "Select hand tools",
+            "keyword": "Hand tool selection",
             "detail": "Select and use hand tools",
             "ksb": "S8"
           },
           {
-            "keyword": "Maintain store hand",
+            "keyword": "Tool care",
             "detail": "Maintain and store hand tools",
             "ksb": "S9"
           },
           {
-            "keyword": "Hand tool maintenance 2",
+            "keyword": "Tool maintenance",
             "detail": "Hand tool use, maintenance and storage: Levels, measures, hammers, bolsters, brick hammers, trowels, brick jointer, line blocks and pins, scutch, chariot and brick clamps",
             "ksb": "K13"
+          },
+          {
+            "keyword": "Power tool limits",
+            "detail": "Power tool use and limitations: Disc cutters, mixers and drills",
+            "ksb": "K14"
+          },
+          {
+            "keyword": "Safety priority",
+            "detail": "Put health, safety and wellbeing first",
+            "ksb": "B1"
           }
         ]
       },
@@ -347,34 +327,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Cavity wall setting",
-            "detail": "Cavity wall setting out techniques: Bricks and blocks, openings and levels, use of profiles, gauge rods and squares",
-            "ksb": "K21"
-          },
-          {
-            "keyword": "Cavity wall construction",
-            "detail": "Cavity wall construction using stretcher bond brick and block walling, forming openings, closing cavities. selection and placement of wall ties, insulation, damp proof courses (DPCs), cavity trays, weep holes, lintels and fire stopping",
-            "ksb": "K22"
-          },
-          {
-            "keyword": "Take ownership given",
-            "detail": "Take ownership of given work",
-            "ksb": "B3"
-          },
-          {
-            "keyword": "Set out brick",
+            "keyword": "Brick setting",
             "detail": "Set out brick and block cavity wall to given tolerances, including an opening",
             "ksb": "S10"
           },
           {
-            "keyword": "Construct stretcher bond",
+            "keyword": "Stretcher bond",
             "detail": "Construct a stretcher bond brick and block cavity wall with return and opening to given tolerances, including installing a lintel with soldiers, brick and edge sill, closure around opening, insulation, fire stopping, cavity tray, damp proof course (DPC) and weep holes",
             "ksb": "S11"
           },
           {
-            "keyword": "Cavity wall setting 2",
+            "keyword": "Cavity setting",
             "detail": "Cavity wall setting out techniques: Bricks and blocks, openings and levels, use of profiles, gauge rods and squares",
             "ksb": "K21"
+          },
+          {
+            "keyword": "Cavity construction",
+            "detail": "Cavity wall construction using stretcher bond brick and block walling, forming openings, closing cavities. selection and placement of wall ties, insulation, damp proof courses (DPCs), cavity trays, weep holes, lintels and fire stopping",
+            "ksb": "K22"
+          },
+          {
+            "keyword": "Task ownership",
+            "detail": "Take ownership of given work",
+            "ksb": "B3"
           }
         ]
       },
@@ -408,34 +383,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Joint finishes Half",
-            "detail": "Joint finishes: Half round, flush, weather struck and recessed",
-            "ksb": "K17"
-          },
-          {
-            "keyword": "expansion joints",
-            "detail": "Principles of the use of expansion joints",
-            "ksb": "K19"
-          },
-          {
-            "keyword": "Mixing Mortar Ratios",
-            "detail": "Mixing Mortar: Ratios, silos, pre-mixed, gauging, hand mixing and mechanical mixing",
-            "ksb": "K20"
-          },
-          {
-            "keyword": "joint finishes example",
+            "keyword": "Joint finishes",
             "detail": "Apply joint finishes: For example, half round, flush, weather struck and recessed",
             "ksb": "S12"
           },
           {
-            "keyword": "Gauge hand mix",
+            "keyword": "Mortar gauging",
             "detail": "Gauge and hand mix mortar to ratio",
             "ksb": "S14"
           },
           {
-            "keyword": "Joint finishes Half 2",
+            "keyword": "Knowledge Joint",
             "detail": "Joint finishes: Half round, flush, weather struck and recessed",
             "ksb": "K17"
+          },
+          {
+            "keyword": "Expansion joints",
+            "detail": "Principles of the use of expansion joints",
+            "ksb": "K19"
+          },
+          {
+            "keyword": "Mortar mixing",
+            "detail": "Mixing Mortar: Ratios, silos, pre-mixed, gauging, hand mixing and mechanical mixing",
+            "ksb": "K20"
           }
         ]
       },
@@ -469,34 +439,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Bond types English",
-            "detail": "Bond types: English bond, flemish bond, garden wall bonds and broken bond",
-            "ksb": "K15"
-          },
-          {
-            "keyword": "Brick solid wall",
-            "detail": "Brick solid wall setting out, construction and capping methods",
-            "ksb": "K16"
-          },
-          {
-            "keyword": "basic decorative walling",
-            "detail": "Principles of basic decorative walling and piers: projecting and contrasting brick, isolated and attached pier, banding",
-            "ksb": "K18"
-          },
-          {
-            "keyword": "Brick edge soldier",
-            "detail": "Brick on edge and soldier courses: setting out and construction techniques",
-            "ksb": "K23"
-          },
-          {
-            "keyword": "Set out construct",
+            "keyword": "Brick setting",
             "detail": "Set out and construct a simple brick solid wall with capping",
             "ksb": "S13"
           },
           {
-            "keyword": "Bond types English 2",
+            "keyword": "Bond types",
             "detail": "Bond types: English bond, flemish bond, garden wall bonds and broken bond",
             "ksb": "K15"
+          },
+          {
+            "keyword": "Solid walling",
+            "detail": "Brick solid wall setting out, construction and capping methods",
+            "ksb": "K16"
+          },
+          {
+            "keyword": "Decorative walling",
+            "detail": "Principles of basic decorative walling and piers: projecting and contrasting brick, isolated and attached pier, banding",
+            "ksb": "K18"
+          },
+          {
+            "keyword": "Special brickwork",
+            "detail": "Brick on edge and soldier courses: setting out and construction techniques",
+            "ksb": "K23"
           }
         ]
       },
@@ -531,34 +496,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Defects repair Construction",
-            "detail": "Defects and repair: Construction defects and repair methods",
-            "ksb": "K24"
-          },
-          {
-            "keyword": "protecting materials work",
-            "detail": "Methods of protecting materials and work: Frost, water and construction damage",
-            "ksb": "K25"
-          },
-          {
-            "keyword": "Take ownership given",
-            "detail": "Take ownership of given work",
-            "ksb": "B3"
-          },
-          {
-            "keyword": "Carry out simple",
+            "keyword": "Carry Out",
             "detail": "Carry out a simple repair: For example, replacing damaged bricks",
             "ksb": "S16"
           },
           {
-            "keyword": "Defects repair Construction 2",
+            "keyword": "Defect repair",
             "detail": "Defects and repair: Construction defects and repair methods",
             "ksb": "K24"
           },
           {
-            "keyword": "Protect materials finished",
+            "keyword": "Work protection",
             "detail": "Protect materials and finished work",
             "ksb": "S17"
+          },
+          {
+            "keyword": "Knowledge Work",
+            "detail": "Methods of protecting materials and work: Frost, water and construction damage",
+            "ksb": "K25"
+          },
+          {
+            "keyword": "Task ownership",
+            "detail": "Take ownership of given work",
+            "ksb": "B3"
           }
         ]
       },
@@ -595,34 +555,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Verbal communication construction",
-            "detail": "Verbal communication techniques and construction terminology",
-            "ksb": "K26"
-          },
-          {
-            "keyword": "good team working",
-            "detail": "Principles of good team working",
-            "ksb": "K27"
-          },
-          {
-            "keyword": "Team-focus meet team",
-            "detail": "Team-focus to meet team goals including, considering the wider build team",
-            "ksb": "B6"
-          },
-          {
-            "keyword": "Seek learning development",
-            "detail": "Seek learning and development opportunities",
-            "ksb": "B5"
-          },
-          {
-            "keyword": "Verbally communicate others",
+            "keyword": "Clear communication",
             "detail": "Verbally communicate with others, applying construction terminology",
             "ksb": "S18"
           },
           {
-            "keyword": "Applies team working",
+            "keyword": "Team collaboration",
             "detail": "Applies team working principles to their own and the wider build team",
             "ksb": "S20"
+          },
+          {
+            "keyword": "Verbal methods",
+            "detail": "Verbal communication techniques and construction terminology",
+            "ksb": "K26"
+          },
+          {
+            "keyword": "Team principles",
+            "detail": "Principles of good team working",
+            "ksb": "K27"
+          },
+          {
+            "keyword": "Team commitment",
+            "detail": "Team-focus to meet team goals including, considering the wider build team",
+            "ksb": "B6"
+          },
+          {
+            "keyword": "Development goals",
+            "detail": "Seek learning and development opportunities",
+            "ksb": "B5"
           }
         ]
       },
@@ -657,34 +617,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Inclusion equity diversity",
-            "detail": "Inclusion, equity and diversity in the workplace",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Well-being Mental physical",
-            "detail": "Well-being: Mental and physical health considerations in self and others and how to access support",
-            "ksb": "K31"
-          },
-          {
-            "keyword": "Contribute inclusive diverse",
-            "detail": "Contribute to an inclusive and diverse culture",
-            "ksb": "B4"
-          },
-          {
-            "keyword": "Follow equity diversity",
+            "keyword": "EDI practice",
             "detail": "Follow equity, diversity and inclusion guidance",
             "ksb": "S19"
           },
           {
-            "keyword": "Identifies well-being support",
+            "keyword": "Wellbeing support",
             "detail": "Identifies well-being support available to self and others",
             "ksb": "S21"
           },
           {
-            "keyword": "Inclusion equity diversity 2",
+            "keyword": "Inclusive working",
             "detail": "Inclusion, equity and diversity in the workplace",
             "ksb": "K28"
+          },
+          {
+            "keyword": "Knowledge Wellbeing",
+            "detail": "Well-being: Mental and physical health considerations in self and others and how to access support",
+            "ksb": "K31"
+          },
+          {
+            "keyword": "Inclusive behaviour",
+            "detail": "Contribute to an inclusive and diverse culture",
+            "ksb": "B4"
           }
         ]
       },
@@ -719,34 +674,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Brick walls raking",
-            "detail": "Brick walls with raking cut: Setting out and construction techniques",
-            "ksb": "K30"
-          },
-          {
-            "keyword": "cutting bricks blocks",
-            "detail": "Methods of cutting bricks and blocks using hand tools",
-            "ksb": "K29"
-          },
-          {
-            "keyword": "Consider environment when",
-            "detail": "Consider the environment when using resources and carrying out processes",
-            "ksb": "B2"
-          },
-          {
-            "keyword": "Construct brick wall",
+            "keyword": "Construct Brick",
             "detail": "Construct a brick wall with raking cut. For example, gable end wall or garden wall with raking cut",
             "ksb": "S22"
           },
           {
-            "keyword": "Measure cut bricks",
+            "keyword": "Cutting accuracy",
             "detail": "Measure and cut bricks and blocks using hand tools, to given tolerances",
             "ksb": "S15"
           },
           {
-            "keyword": "Brick walls raking 2",
+            "keyword": "Raked walling",
             "detail": "Brick walls with raking cut: Setting out and construction techniques",
             "ksb": "K30"
+          },
+          {
+            "keyword": "Brick cutting",
+            "detail": "Methods of cutting bricks and blocks using hand tools",
+            "ksb": "K29"
+          },
+          {
+            "keyword": "Environmental care",
+            "detail": "Consider the environment when using resources and carrying out processes",
+            "ksb": "B2"
           }
         ]
       }
@@ -792,34 +742,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Awareness health safety",
-            "detail": "Awareness of health and safety regulations, standards, and guidance and impact on role. Control of Substances Hazardous to Health (CoSHH). Fire safety. Health and Safety at Work Act. Asbestos awareness. Manual handling. signage, fire extinguishers. Safety signage. Situational awareness. Slips, trips, and falls. Working in confined spaces. Working at height. Provision and use of work equipment regulations (PUWER) and Electrical safety",
-            "ksb": "K1"
-          },
-          {
-            "keyword": "Safety control equipment",
-            "detail": "Safety control equipment and how to use personal protective equipment (PPE) respiratory protective equipment (RPE) and local exhaust ventilation (LEV)",
-            "ksb": "K2"
-          },
-          {
-            "keyword": "Safe systems work",
-            "detail": "Safe systems of work: Site inductions, tool box talks, risk assessments, method statements and hazard identification in the work area",
-            "ksb": "K3"
-          },
-          {
-            "keyword": "Put health safety",
-            "detail": "Put health, safety and wellbeing first",
-            "ksb": "B1"
-          },
-          {
-            "keyword": "Comply health safety",
+            "keyword": "Safety compliance",
             "detail": "Comply with health and safety regulations, standards, and guidance",
             "ksb": "S1"
           },
           {
-            "keyword": "Identify safety control",
+            "keyword": "Safety controls",
             "detail": "Identify and use safety control equipment, for example, RPE, dust suppression, PPE and LEV",
             "ksb": "S2"
+          },
+          {
+            "keyword": "Safety awareness",
+            "detail": "Awareness of health and safety regulations, standards, and guidance and impact on role. Control of Substances Hazardous to Health (CoSHH). Fire safety. Health and Safety at Work Act. Asbestos awareness. Manual handling. signage, fire extinguishers. Safety signage. Situational awareness. Slips, trips, and falls. Working in confined spaces. Working at height. Provision and use of work equipment regulations (PUWER) and Electrical safety",
+            "ksb": "K1"
+          },
+          {
+            "keyword": "Knowledge Safety",
+            "detail": "Safety control equipment and how to use personal protective equipment (PPE) respiratory protective equipment (RPE) and local exhaust ventilation (LEV)",
+            "ksb": "K2"
+          },
+          {
+            "keyword": "Safe systems",
+            "detail": "Safe systems of work: Site inductions, tool box talks, risk assessments, method statements and hazard identification in the work area",
+            "ksb": "K3"
+          },
+          {
+            "keyword": "Safety priority",
+            "detail": "Put health, safety and wellbeing first",
+            "ksb": "B1"
           }
         ]
       },
@@ -856,34 +806,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Impact sector environment",
-            "detail": "Impact of the sector on the environment: Efficient use of resources. Recycling, reuse, safe disposal of waste and sustainable forestry",
-            "ksb": "K4"
-          },
-          {
-            "keyword": "Standards regulations carpentry",
-            "detail": "Standards and regulations associated with carpentry activities: British standards, building regulations and warranty provider standards",
-            "ksb": "K7"
-          },
-          {
-            "keyword": "Employment types self",
-            "detail": "Employment types (self employed and employed), small business start up principles and tax",
-            "ksb": "K40"
-          },
-          {
-            "keyword": "Consider environment when",
-            "detail": "Consider the environment when using resources and carrying out processes",
-            "ksb": "B2"
-          },
-          {
-            "keyword": "Comply environmental sustainability",
+            "keyword": "Sustainable practice",
             "detail": "Comply with environmental and sustainability regulations, standards, and guidance. Segregate resources for reuse, recycling and disposal",
             "ksb": "S3"
           },
           {
-            "keyword": "Comply industry regulations",
+            "keyword": "Regulatory compliance",
             "detail": "Comply with industry regulations, standards, and guidance",
             "ksb": "S4"
+          },
+          {
+            "keyword": "Environmental impact",
+            "detail": "Impact of the sector on the environment: Efficient use of resources. Recycling, reuse, safe disposal of waste and sustainable forestry",
+            "ksb": "K4"
+          },
+          {
+            "keyword": "Industry standards",
+            "detail": "Standards and regulations associated with carpentry activities: British standards, building regulations and warranty provider standards",
+            "ksb": "K7"
+          },
+          {
+            "keyword": "Employment routes",
+            "detail": "Employment types (self employed and employed), small business start up principles and tax",
+            "ksb": "K40"
+          },
+          {
+            "keyword": "Environmental care",
+            "detail": "Consider the environment when using resources and carrying out processes",
+            "ksb": "B2"
           }
         ]
       },
@@ -920,34 +870,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "building modern construction",
-            "detail": "Principles of building and modern methods of construction: Foundations, roofs, walls, damp proof courses, floors, timber frame, structurally insulated panels (SIPS) utilities and services, internal plaster finishes, insulation, fire protection, moisture and air protection and quality of materials",
-            "ksb": "K5"
-          },
-          {
-            "keyword": "Basic digital design",
-            "detail": "Basic principles of digital design and modelling systems",
-            "ksb": "K6"
-          },
-          {
-            "keyword": "interpreting extracting relevant",
-            "detail": "Methods of interpreting and extracting relevant information from drawings and specifications",
-            "ksb": "K8"
-          },
-          {
-            "keyword": "Seek learning development",
-            "detail": "Seek learning and development opportunities",
-            "ksb": "B4"
-          },
-          {
-            "keyword": "Prepare maintain safe",
+            "keyword": "Safe workspace",
             "detail": "Prepare and maintain a safe working area",
             "ksb": "S5"
           },
           {
-            "keyword": "Interpret information drawings",
+            "keyword": "Drawing interpretation",
             "detail": "Interpret and use information from drawings and specifications",
             "ksb": "S6"
+          },
+          {
+            "keyword": "Modern methods",
+            "detail": "Principles of building and modern methods of construction: Foundations, roofs, walls, damp proof courses, floors, timber frame, structurally insulated panels (SIPS) utilities and services, internal plaster finishes, insulation, fire protection, moisture and air protection and quality of materials",
+            "ksb": "K5"
+          },
+          {
+            "keyword": "Digital design",
+            "detail": "Basic principles of digital design and modelling systems",
+            "ksb": "K6"
+          },
+          {
+            "keyword": "Knowledge Drawing",
+            "detail": "Methods of interpreting and extracting relevant information from drawings and specifications",
+            "ksb": "K8"
+          },
+          {
+            "keyword": "Development goals",
+            "detail": "Seek learning and development opportunities",
+            "ksb": "B4"
           }
         ]
       },
@@ -981,34 +931,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Materials characteristics home",
-            "detail": "Materials and their characteristics of home grown and imported timber and timber-based products. Natural timber products: Hardwood and softwood. Manufactured timber products: Board, laminated timber and carcassing",
-            "ksb": "K9"
-          },
-          {
-            "keyword": "Timber decay repair",
-            "detail": "Timber decay and repair methods: Timber moisture content parameters for a range of timber and timber-based materials, wet rot and dry rot, and insect attack",
-            "ksb": "K10"
-          },
-          {
-            "keyword": "Basic material estimation",
-            "detail": "Basic material estimation techniques, calculating lengths of timber, fixing requirements and a cutting list production methods",
-            "ksb": "K12"
-          },
-          {
-            "keyword": "Estimate required materials",
+            "keyword": "Material quantities",
             "detail": "Estimate required materials and produce a cutting list",
             "ksb": "S7"
           },
           {
-            "keyword": "Site carpenter Size",
+            "keyword": "Size Timber",
             "detail": "Site carpenter: Size timber from sizing tables",
             "ksb": "S16"
           },
           {
-            "keyword": "Materials characteristics home 2",
+            "keyword": "Material properties",
             "detail": "Materials and their characteristics of home grown and imported timber and timber-based products. Natural timber products: Hardwood and softwood. Manufactured timber products: Board, laminated timber and carcassing",
             "ksb": "K9"
+          },
+          {
+            "keyword": "Timber defects",
+            "detail": "Timber decay and repair methods: Timber moisture content parameters for a range of timber and timber-based materials, wet rot and dry rot, and insect attack",
+            "ksb": "K10"
+          },
+          {
+            "keyword": "Resource estimates",
+            "detail": "Basic material estimation techniques, calculating lengths of timber, fixing requirements and a cutting list production methods",
+            "ksb": "K12"
           }
         ]
       },
@@ -1044,34 +989,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Hand tool storage",
-            "detail": "Hand tool use and storage methods and techniques: Chisels, planes, hand saws, hammers, squares, tri-square, bevels, marking and mortise gauges, spirit levels",
-            "ksb": "K14"
-          },
-          {
-            "keyword": "Hand tool maintenance",
-            "detail": "Hand tool maintenance and sharpening techniques",
-            "ksb": "K15"
-          },
-          {
-            "keyword": "Power tools storage",
-            "detail": "Power tools use and storage methods and techniques: Portable circular saws, drills, saws, planers, routers, sanders, multi-functional tools and nail guns",
-            "ksb": "K17"
-          },
-          {
-            "keyword": "Select store hand",
+            "keyword": "Hand tool selection",
             "detail": "Select, use and store hand tools",
             "ksb": "S9"
           },
           {
-            "keyword": "Select store power",
+            "keyword": "Power tool selection",
             "detail": "Select, use and store power tools",
             "ksb": "S10"
           },
           {
-            "keyword": "Maintain sharpen hand",
+            "keyword": "Tool maintenance",
             "detail": "Maintain and sharpen hand tools",
             "ksb": "S11"
+          },
+          {
+            "keyword": "Tool storage",
+            "detail": "Hand tool use and storage methods and techniques: Chisels, planes, hand saws, hammers, squares, tri-square, bevels, marking and mortise gauges, spirit levels",
+            "ksb": "K14"
+          },
+          {
+            "keyword": "Knowledge Tool",
+            "detail": "Hand tool maintenance and sharpening techniques",
+            "ksb": "K15"
+          },
+          {
+            "keyword": "Power tool storage",
+            "detail": "Power tools use and storage methods and techniques: Portable circular saws, drills, saws, planers, routers, sanders, multi-functional tools and nail guns",
+            "ksb": "K17"
           }
         ]
       },
@@ -1103,32 +1048,22 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
+            "keyword": "Jig making",
+            "detail": "Produce jigs",
+            "ksb": "S12"
+          },
+          {
+            "keyword": "Store Laser",
+            "detail": "Site carpenter: Use and store laser levels for example cross line laser",
+            "ksb": "S19"
+          },
+          {
             "keyword": "Jig production",
             "detail": "Jig production techniques",
             "ksb": "K16"
           },
           {
-            "keyword": "Site carpentry Types",
-            "detail": "Site carpentry: Types, use, calibration and storage of laser levels",
-            "ksb": "K29"
-          },
-          {
-            "keyword": "Produce jigs",
-            "detail": "Produce jigs",
-            "ksb": "S12"
-          },
-          {
-            "keyword": "Site carpenter store",
-            "detail": "Site carpenter: Use and store laser levels for example cross line laser",
-            "ksb": "S19"
-          },
-          {
-            "keyword": "Jig production 2",
-            "detail": "Jig production techniques",
-            "ksb": "K16"
-          },
-          {
-            "keyword": "Site carpentry Types 2",
+            "keyword": "Level selection",
             "detail": "Site carpentry: Types, use, calibration and storage of laser levels",
             "ksb": "K29"
           }
@@ -1171,32 +1106,42 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Verbal communication construction",
+            "keyword": "Clear communication",
+            "detail": "Verbally communicate with others, applying construction terminology",
+            "ksb": "S8"
+          },
+          {
+            "keyword": "Wellbeing support",
+            "detail": "Identifies well-being support available to self and others",
+            "ksb": "S13"
+          },
+          {
+            "keyword": "Verbal methods",
             "detail": "Verbal communication techniques and construction terminology",
             "ksb": "K13"
           },
           {
-            "keyword": "good team working",
+            "keyword": "Team principles",
             "detail": "Principles of good team working",
             "ksb": "K18"
           },
           {
-            "keyword": "Inclusion equity diversity",
+            "keyword": "Inclusive working",
             "detail": "Inclusion, equity and diversity in the workplace",
             "ksb": "K19"
           },
           {
-            "keyword": "Well-being Mental physical",
+            "keyword": "Knowledge Wellbeing",
             "detail": "Well-being: Mental and physical health considerations in self and others and how to access support",
             "ksb": "K20"
           },
           {
-            "keyword": "Contribute inclusive diverse",
+            "keyword": "Inclusive behaviour",
             "detail": "Contribute to an inclusive and diverse culture",
             "ksb": "B3"
           },
           {
-            "keyword": "Team-focus meet team",
+            "keyword": "Team commitment",
             "detail": "Team-focus to meet team goals including, considering the wider build team",
             "ksb": "B5"
           }
@@ -1228,34 +1173,19 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry Structural",
-            "detail": "Site carpentry: Structural fixtures and timber sizing in site carpentry, how to use sizing tables",
-            "ksb": "K22"
-          },
-          {
-            "keyword": "Site carpenter first",
+            "keyword": "Wall structures",
             "detail": "Site carpenter: Apply first fix techniques and practices for: 1. structural carcassing (load bearing studwork), 2. straight timber or metal partition walls, 3. floor joists 4. floor joist coverings and 5. straight flights of stairs",
             "ksb": "S14"
           },
           {
-            "keyword": "Site carpenter Install",
+            "keyword": "Structural installation",
             "detail": "Site carpenter: Install structural fixings",
             "ksb": "S15"
           },
           {
-            "keyword": "Site carpentry Structural 2",
+            "keyword": "Carpentry Structural",
             "detail": "Site carpentry: Structural fixtures and timber sizing in site carpentry, how to use sizing tables",
             "ksb": "K22"
-          },
-          {
-            "keyword": "Site carpentry Structural 3",
-            "detail": "Site carpentry: Structural fixtures and timber sizing in site carpentry, how to use sizing tables",
-            "ksb": "K22"
-          },
-          {
-            "keyword": "Site carpenter first 2",
-            "detail": "Site carpenter: Apply first fix techniques and practices for: 1. structural carcassing (load bearing studwork), 2. straight timber or metal partition walls, 3. floor joists 4. floor joist coverings and 5. straight flights of stairs",
-            "ksb": "S14"
           }
         ]
       },
@@ -1283,32 +1213,12 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry First",
-            "detail": "Site carpentry: First fixing installation techniques: Structural carcassing (load bearing studwork), floor joists and coverings, straight flights of stairs, metal and timber stud partitions",
-            "ksb": "K27"
-          },
-          {
-            "keyword": "Site carpenter first",
+            "keyword": "Wall structures",
             "detail": "Site carpenter: Apply first fix techniques and practices for: 1. structural carcassing (load bearing studwork), 2. straight timber or metal partition walls, 3. floor joists 4. floor joist coverings and 5. straight flights of stairs",
             "ksb": "S14"
           },
           {
-            "keyword": "Site carpentry First 2",
-            "detail": "Site carpentry: First fixing installation techniques: Structural carcassing (load bearing studwork), floor joists and coverings, straight flights of stairs, metal and timber stud partitions",
-            "ksb": "K27"
-          },
-          {
-            "keyword": "Site carpentry First 3",
-            "detail": "Site carpentry: First fixing installation techniques: Structural carcassing (load bearing studwork), floor joists and coverings, straight flights of stairs, metal and timber stud partitions",
-            "ksb": "K27"
-          },
-          {
-            "keyword": "Site carpenter first 2",
-            "detail": "Site carpenter: Apply first fix techniques and practices for: 1. structural carcassing (load bearing studwork), 2. straight timber or metal partition walls, 3. floor joists 4. floor joist coverings and 5. straight flights of stairs",
-            "ksb": "S14"
-          },
-          {
-            "keyword": "Site carpentry First 4",
+            "keyword": "Knowledge Wall",
             "detail": "Site carpentry: First fixing installation techniques: Structural carcassing (load bearing studwork), floor joists and coverings, straight flights of stairs, metal and timber stud partitions",
             "ksb": "K27"
           }
@@ -1338,32 +1248,12 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry Second",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter site",
+            "keyword": "Cladding systems",
             "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
             "ksb": "S17"
           },
           {
-            "keyword": "Site carpentry Second 2",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpentry Second 3",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter site 2",
-            "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
-            "ksb": "S17"
-          },
-          {
-            "keyword": "Site carpentry Second 4",
+            "keyword": "Knowledge Cladding",
             "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
             "ksb": "K28"
           }
@@ -1397,32 +1287,22 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Carpentry joinery products",
-            "detail": "Carpentry and joinery products and purpose: Mastics, preservatives, wood fillers, plastics and ironmongery",
-            "ksb": "K11"
-          },
-          {
-            "keyword": "Site carpentry Second",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter site",
+            "keyword": "Cladding systems",
             "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
             "ksb": "S17"
           },
           {
-            "keyword": "Site carpenter Form",
+            "keyword": "Connection forming",
             "detail": "Site carpenter: Form connections, for example, using joints, nails, screws, bolts and adhesive",
             "ksb": "S20"
           },
           {
-            "keyword": "Carpentry joinery products 2",
+            "keyword": "Ironmongery",
             "detail": "Carpentry and joinery products and purpose: Mastics, preservatives, wood fillers, plastics and ironmongery",
             "ksb": "K11"
           },
           {
-            "keyword": "Site carpentry Second 2",
+            "keyword": "Knowledge Cladding",
             "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
             "ksb": "K28"
           }
@@ -1458,34 +1338,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry Measuring",
-            "detail": "Site carpentry techniques: Measuring, marking out, fitting, cutting (straight and angled) and mitring",
-            "ksb": "K21"
-          },
-          {
-            "keyword": "Site carpentry First",
-            "detail": "Site carpentry: First fixing installation techniques: Structural carcassing (load bearing studwork), floor joists and coverings, straight flights of stairs, metal and timber stud partitions",
-            "ksb": "K27"
-          },
-          {
-            "keyword": "Site carpentry Second",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter first",
+            "keyword": "Wall structures",
             "detail": "Site carpenter: Apply first fix techniques and practices for: 1. structural carcassing (load bearing studwork), 2. straight timber or metal partition walls, 3. floor joists 4. floor joist coverings and 5. straight flights of stairs",
             "ksb": "S14"
           },
           {
-            "keyword": "Site carpenter site",
+            "keyword": "Cladding systems",
             "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
             "ksb": "S17"
           },
           {
-            "keyword": "Site carpentry Measuring 2",
+            "keyword": "Carpentry Techniques",
             "detail": "Site carpentry techniques: Measuring, marking out, fitting, cutting (straight and angled) and mitring",
             "ksb": "K21"
+          },
+          {
+            "keyword": "Knowledge Wall",
+            "detail": "Site carpentry: First fixing installation techniques: Structural carcassing (load bearing studwork), floor joists and coverings, straight flights of stairs, metal and timber stud partitions",
+            "ksb": "K27"
+          },
+          {
+            "keyword": "Knowledge Cladding",
+            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
+            "ksb": "K28"
           }
         ]
       },
@@ -1515,34 +1390,19 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry Second",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter site",
+            "keyword": "Cladding systems",
             "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
             "ksb": "S17"
           },
           {
-            "keyword": "Site carpenter measuring",
+            "keyword": "Apply Measuring",
             "detail": "Site carpenter: Apply measuring, marking out, cutting (square and angled), mitring, hinging and recessing techniques",
             "ksb": "S21"
           },
           {
-            "keyword": "Site carpentry Second 2",
+            "keyword": "Knowledge Cladding",
             "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
             "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpentry Second 3",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter site 2",
-            "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
-            "ksb": "S17"
           }
         ]
       },
@@ -1574,32 +1434,22 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry Timber",
-            "detail": "Site carpentry: Timber splicing and scribing techniques",
-            "ksb": "K24"
-          },
-          {
-            "keyword": "Site carpentry Second",
-            "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
-            "ksb": "K28"
-          },
-          {
-            "keyword": "Site carpenter site",
+            "keyword": "Cladding systems",
             "detail": "Site carpenter: Apply site second fix techniques and practices for: 1. service encasement, 2. cladding 3. wall and floor units and fitments, 4. handrails and spindles to straight flights of stairs, 5. internal and external doors, 6. skirting boards and architrave, 7. window boards",
             "ksb": "S17"
           },
           {
-            "keyword": "Site carpenter Carrying",
+            "keyword": "Carrying Out",
             "detail": "Site carpenter: Carrying out splicing and scribing techniques",
             "ksb": "S22"
           },
           {
-            "keyword": "Site carpentry Timber 2",
+            "keyword": "Carpentry Timber",
             "detail": "Site carpentry: Timber splicing and scribing techniques",
             "ksb": "K24"
           },
           {
-            "keyword": "Site carpentry Second 2",
+            "keyword": "Knowledge Cladding",
             "detail": "Site carpentry: Second fix installation techniques: Service encasement, cladding, wall and floor units and fitments, window boards, handrails and spindles to straight flights of stairs, doors and mouldings (architrave and skirting board)",
             "ksb": "K28"
           }
@@ -1631,34 +1481,19 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Site carpentry Straight",
-            "detail": "Site carpentry: Straight roof installation techniques: Basic rafter trussed (prefabricated) and traditional cut roof (built on site)",
-            "ksb": "K25"
-          },
-          {
-            "keyword": "Site carpentry Flat",
-            "detail": "Site carpentry: Flat roofs: Warm and cold flat roofs including firings and coverings",
-            "ksb": "K26"
-          },
-          {
-            "keyword": "Site carpenter site",
+            "keyword": "Roof construction",
             "detail": "Site carpenter: Apply site carpenter techniques and practices to construction of rafter roofs, including trussed (prefabricated) and traditional (built on site) including the construction of verge, eaves and fitting loft access",
             "ksb": "S18"
           },
           {
-            "keyword": "Site carpentry Straight 2",
+            "keyword": "Pitched roofing",
             "detail": "Site carpentry: Straight roof installation techniques: Basic rafter trussed (prefabricated) and traditional cut roof (built on site)",
             "ksb": "K25"
           },
           {
-            "keyword": "Site carpentry Flat 2",
+            "keyword": "Flat roofing",
             "detail": "Site carpentry: Flat roofs: Warm and cold flat roofs including firings and coverings",
             "ksb": "K26"
-          },
-          {
-            "keyword": "Site carpentry Straight 3",
-            "detail": "Site carpentry: Straight roof installation techniques: Basic rafter trussed (prefabricated) and traditional cut roof (built on site)",
-            "ksb": "K25"
           }
         ]
       }
@@ -1704,34 +1539,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Awareness health safety",
-            "detail": "Awareness of health and safety regulations, standards, and guidance and impact on role. Control of Substances Hazardous to Health (CoSHH). Fire safety. Health and Safety at Work Act. Asbestos awareness. Manual handling. signage, fire extinguishers. Safety signage. Situational awareness. Slips, trips, and falls. Working in confined spaces. Working at height. Provision and use of work equipment regulations (PUWER) and Electrical safety",
-            "ksb": "K1"
-          },
-          {
-            "keyword": "Safety control equipment",
-            "detail": "Safety control equipment and how to use personal protective equipment (PPE) respiratory protective equipment (RPE) and local exhaust ventilation (LEV)",
-            "ksb": "K2"
-          },
-          {
-            "keyword": "Safe systems work",
-            "detail": "Safe systems of work: Site inductions, tool box talks, risk assessments, method statements and hazard identification in the work area",
-            "ksb": "K3"
-          },
-          {
-            "keyword": "Put health safety",
-            "detail": "Put health, safety and wellbeing first",
-            "ksb": "B1"
-          },
-          {
-            "keyword": "Comply health safety",
+            "keyword": "Safety compliance",
             "detail": "Comply with health and safety regulations, standards, and guidance",
             "ksb": "S1"
           },
           {
-            "keyword": "Identify safety control",
+            "keyword": "Safety controls",
             "detail": "Identify and use safety control equipment, for example, RPE, dust suppression, PPE and LEV",
             "ksb": "S2"
+          },
+          {
+            "keyword": "Safety awareness",
+            "detail": "Awareness of health and safety regulations, standards, and guidance and impact on role. Control of Substances Hazardous to Health (CoSHH). Fire safety. Health and Safety at Work Act. Asbestos awareness. Manual handling. signage, fire extinguishers. Safety signage. Situational awareness. Slips, trips, and falls. Working in confined spaces. Working at height. Provision and use of work equipment regulations (PUWER) and Electrical safety",
+            "ksb": "K1"
+          },
+          {
+            "keyword": "Knowledge Safety",
+            "detail": "Safety control equipment and how to use personal protective equipment (PPE) respiratory protective equipment (RPE) and local exhaust ventilation (LEV)",
+            "ksb": "K2"
+          },
+          {
+            "keyword": "Safe systems",
+            "detail": "Safe systems of work: Site inductions, tool box talks, risk assessments, method statements and hazard identification in the work area",
+            "ksb": "K3"
+          },
+          {
+            "keyword": "Safety priority",
+            "detail": "Put health, safety and wellbeing first",
+            "ksb": "B1"
           }
         ]
       },
@@ -1768,34 +1603,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Impact sector environment",
-            "detail": "Impact of the sector on the environment: Efficient use of resources. Recycling, reuse, safe disposal of waste and sustainable forestry",
-            "ksb": "K4"
-          },
-          {
-            "keyword": "Standards regulations carpentry",
-            "detail": "Standards and regulations associated with carpentry activities: British standards, building regulations and warranty provider standards",
-            "ksb": "K7"
-          },
-          {
-            "keyword": "Employment types self",
-            "detail": "Employment types (self employed and employed), small business start up principles and tax",
-            "ksb": "K40"
-          },
-          {
-            "keyword": "Consider environment when",
-            "detail": "Consider the environment when using resources and carrying out processes",
-            "ksb": "B2"
-          },
-          {
-            "keyword": "Comply environmental sustainability",
+            "keyword": "Sustainable practice",
             "detail": "Comply with environmental and sustainability regulations, standards, and guidance. Segregate resources for reuse, recycling and disposal",
             "ksb": "S3"
           },
           {
-            "keyword": "Comply industry regulations",
+            "keyword": "Regulatory compliance",
             "detail": "Comply with industry regulations, standards, and guidance",
             "ksb": "S4"
+          },
+          {
+            "keyword": "Environmental impact",
+            "detail": "Impact of the sector on the environment: Efficient use of resources. Recycling, reuse, safe disposal of waste and sustainable forestry",
+            "ksb": "K4"
+          },
+          {
+            "keyword": "Industry standards",
+            "detail": "Standards and regulations associated with carpentry activities: British standards, building regulations and warranty provider standards",
+            "ksb": "K7"
+          },
+          {
+            "keyword": "Employment routes",
+            "detail": "Employment types (self employed and employed), small business start up principles and tax",
+            "ksb": "K40"
+          },
+          {
+            "keyword": "Environmental care",
+            "detail": "Consider the environment when using resources and carrying out processes",
+            "ksb": "B2"
           }
         ]
       },
@@ -1832,34 +1667,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "building modern construction",
-            "detail": "Principles of building and modern methods of construction: Foundations, roofs, walls, damp proof courses, floors, timber frame, structurally insulated panels (SIPS) utilities and services, internal plaster finishes, insulation, fire protection, moisture and air protection and quality of materials",
-            "ksb": "K5"
-          },
-          {
-            "keyword": "Basic digital design",
-            "detail": "Basic principles of digital design and modelling systems",
-            "ksb": "K6"
-          },
-          {
-            "keyword": "interpreting extracting relevant",
-            "detail": "Methods of interpreting and extracting relevant information from drawings and specifications",
-            "ksb": "K8"
-          },
-          {
-            "keyword": "Seek learning development",
-            "detail": "Seek learning and development opportunities",
-            "ksb": "B4"
-          },
-          {
-            "keyword": "Prepare maintain safe",
+            "keyword": "Safe workspace",
             "detail": "Prepare and maintain a safe working area",
             "ksb": "S5"
           },
           {
-            "keyword": "Interpret information drawings",
+            "keyword": "Drawing interpretation",
             "detail": "Interpret and use information from drawings and specifications",
             "ksb": "S6"
+          },
+          {
+            "keyword": "Modern methods",
+            "detail": "Principles of building and modern methods of construction: Foundations, roofs, walls, damp proof courses, floors, timber frame, structurally insulated panels (SIPS) utilities and services, internal plaster finishes, insulation, fire protection, moisture and air protection and quality of materials",
+            "ksb": "K5"
+          },
+          {
+            "keyword": "Digital design",
+            "detail": "Basic principles of digital design and modelling systems",
+            "ksb": "K6"
+          },
+          {
+            "keyword": "Knowledge Drawing",
+            "detail": "Methods of interpreting and extracting relevant information from drawings and specifications",
+            "ksb": "K8"
+          },
+          {
+            "keyword": "Development goals",
+            "detail": "Seek learning and development opportunities",
+            "ksb": "B4"
           }
         ]
       },
@@ -1891,34 +1726,24 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Materials characteristics home",
-            "detail": "Materials and their characteristics of home grown and imported timber and timber-based products. Natural timber products: Hardwood and softwood. Manufactured timber products: Board, laminated timber and carcassing",
-            "ksb": "K9"
-          },
-          {
-            "keyword": "Timber decay repair",
-            "detail": "Timber decay and repair methods: Timber moisture content parameters for a range of timber and timber-based materials, wet rot and dry rot, and insect attack",
-            "ksb": "K10"
-          },
-          {
-            "keyword": "Basic material estimation",
-            "detail": "Basic material estimation techniques, calculating lengths of timber, fixing requirements and a cutting list production methods",
-            "ksb": "K12"
-          },
-          {
-            "keyword": "Estimate required materials",
+            "keyword": "Material quantities",
             "detail": "Estimate required materials and produce a cutting list",
             "ksb": "S7"
           },
           {
-            "keyword": "Materials characteristics home 2",
+            "keyword": "Material properties",
             "detail": "Materials and their characteristics of home grown and imported timber and timber-based products. Natural timber products: Hardwood and softwood. Manufactured timber products: Board, laminated timber and carcassing",
             "ksb": "K9"
           },
           {
-            "keyword": "Timber decay repair 2",
+            "keyword": "Timber defects",
             "detail": "Timber decay and repair methods: Timber moisture content parameters for a range of timber and timber-based materials, wet rot and dry rot, and insect attack",
             "ksb": "K10"
+          },
+          {
+            "keyword": "Resource estimates",
+            "detail": "Basic material estimation techniques, calculating lengths of timber, fixing requirements and a cutting list production methods",
+            "ksb": "K12"
           }
         ]
       },
@@ -1954,34 +1779,34 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Hand tool storage",
-            "detail": "Hand tool use and storage methods and techniques: Chisels, planes, hand saws, hammers, squares, tri-square, bevels, marking and mortise gauges, spirit levels",
-            "ksb": "K14"
-          },
-          {
-            "keyword": "Hand tool maintenance",
-            "detail": "Hand tool maintenance and sharpening techniques",
-            "ksb": "K15"
-          },
-          {
-            "keyword": "Power tools storage",
-            "detail": "Power tools use and storage methods and techniques: Portable circular saws, drills, saws, planers, routers, sanders, multi-functional tools and nail guns",
-            "ksb": "K17"
-          },
-          {
-            "keyword": "Select store hand",
+            "keyword": "Hand tool selection",
             "detail": "Select, use and store hand tools",
             "ksb": "S9"
           },
           {
-            "keyword": "Select store power",
+            "keyword": "Power tool selection",
             "detail": "Select, use and store power tools",
             "ksb": "S10"
           },
           {
-            "keyword": "Maintain sharpen hand",
+            "keyword": "Tool maintenance",
             "detail": "Maintain and sharpen hand tools",
             "ksb": "S11"
+          },
+          {
+            "keyword": "Tool storage",
+            "detail": "Hand tool use and storage methods and techniques: Chisels, planes, hand saws, hammers, squares, tri-square, bevels, marking and mortise gauges, spirit levels",
+            "ksb": "K14"
+          },
+          {
+            "keyword": "Knowledge Tool",
+            "detail": "Hand tool maintenance and sharpening techniques",
+            "ksb": "K15"
+          },
+          {
+            "keyword": "Power tool storage",
+            "detail": "Power tools use and storage methods and techniques: Portable circular saws, drills, saws, planers, routers, sanders, multi-functional tools and nail guns",
+            "ksb": "K17"
           }
         ]
       },
@@ -2011,34 +1836,19 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
+            "keyword": "Jig making",
+            "detail": "Produce jigs",
+            "ksb": "S12"
+          },
+          {
             "keyword": "Jig production",
             "detail": "Jig production techniques",
             "ksb": "K16"
           },
           {
-            "keyword": "Site carpentry Types",
+            "keyword": "Level selection",
             "detail": "Site carpentry: Types, use, calibration and storage of laser levels",
             "ksb": "K29"
-          },
-          {
-            "keyword": "Produce jigs",
-            "detail": "Produce jigs",
-            "ksb": "S12"
-          },
-          {
-            "keyword": "Jig production 2",
-            "detail": "Jig production techniques",
-            "ksb": "K16"
-          },
-          {
-            "keyword": "Site carpentry Types 2",
-            "detail": "Site carpentry: Types, use, calibration and storage of laser levels",
-            "ksb": "K29"
-          },
-          {
-            "keyword": "Jig production 3",
-            "detail": "Jig production techniques",
-            "ksb": "K16"
           }
         ]
       },
@@ -2079,32 +1889,42 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Verbal communication construction",
+            "keyword": "Clear communication",
+            "detail": "Verbally communicate with others, applying construction terminology",
+            "ksb": "S8"
+          },
+          {
+            "keyword": "Wellbeing support",
+            "detail": "Identifies well-being support available to self and others",
+            "ksb": "S13"
+          },
+          {
+            "keyword": "Verbal methods",
             "detail": "Verbal communication techniques and construction terminology",
             "ksb": "K13"
           },
           {
-            "keyword": "good team working",
+            "keyword": "Team principles",
             "detail": "Principles of good team working",
             "ksb": "K18"
           },
           {
-            "keyword": "Inclusion equity diversity",
+            "keyword": "Inclusive working",
             "detail": "Inclusion, equity and diversity in the workplace",
             "ksb": "K19"
           },
           {
-            "keyword": "Well-being Mental physical",
+            "keyword": "Knowledge Wellbeing",
             "detail": "Well-being: Mental and physical health considerations in self and others and how to access support",
             "ksb": "K20"
           },
           {
-            "keyword": "Contribute inclusive diverse",
+            "keyword": "Inclusive behaviour",
             "detail": "Contribute to an inclusive and diverse culture",
             "ksb": "B3"
           },
           {
-            "keyword": "Team-focus meet team",
+            "keyword": "Team commitment",
             "detail": "Team-focus to meet team goals including, considering the wider build team",
             "ksb": "B5"
           }
@@ -2134,32 +1954,12 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Setting",
-            "detail": "Architectural joiner: Setting out and marking out techniques for joinery product manufacture and potential effects of marking out errors",
-            "ksb": "K32"
-          },
-          {
-            "keyword": "Architectural joiner Produce",
+            "keyword": "Joinery setting",
             "detail": "Architectural joiner: Produce setting out details, including setting rods, and mark out for timber products",
             "ksb": "S23"
           },
           {
-            "keyword": "Architectural joiner Setting 2",
-            "detail": "Architectural joiner: Setting out and marking out techniques for joinery product manufacture and potential effects of marking out errors",
-            "ksb": "K32"
-          },
-          {
-            "keyword": "Architectural joiner Setting 3",
-            "detail": "Architectural joiner: Setting out and marking out techniques for joinery product manufacture and potential effects of marking out errors",
-            "ksb": "K32"
-          },
-          {
-            "keyword": "Architectural joiner Produce 2",
-            "detail": "Architectural joiner: Produce setting out details, including setting rods, and mark out for timber products",
-            "ksb": "S23"
-          },
-          {
-            "keyword": "Architectural joiner Setting 4",
+            "keyword": "Knowledge Joinery",
             "detail": "Architectural joiner: Setting out and marking out techniques for joinery product manufacture and potential effects of marking out errors",
             "ksb": "K32"
           }
@@ -2195,34 +1995,29 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Carpentry joinery products",
-            "detail": "Carpentry and joinery products and purpose: Mastics, preservatives, wood fillers, plastics and ironmongery",
-            "ksb": "K11"
-          },
-          {
-            "keyword": "Architectural joiner Timber",
-            "detail": "Architectural joiner: Timber joints, types and production techniques: Dovetails, mortise and tenon, bridals and halvings",
-            "ksb": "K33"
-          },
-          {
-            "keyword": "Architectural joiner Connection",
-            "detail": "Architectural joiner: Connection methods in joinery: Dowels, biscuit, staples and adhesives",
-            "ksb": "K35"
-          },
-          {
-            "keyword": "Architectural joiner Produce",
+            "keyword": "Produce Basic",
             "detail": "Architectural joiner: Produce basic woodworking joints including dovetail, bridal, mortise and tenon and halving",
             "ksb": "S24"
           },
           {
-            "keyword": "Architectural joiner Form",
+            "keyword": "Connection forming",
             "detail": "Architectural joiner: Form connections using dowels, biscuit, staples and adhesives",
             "ksb": "S25"
           },
           {
-            "keyword": "Carpentry joinery products 2",
+            "keyword": "Ironmongery",
             "detail": "Carpentry and joinery products and purpose: Mastics, preservatives, wood fillers, plastics and ironmongery",
             "ksb": "K11"
+          },
+          {
+            "keyword": "Timber joints",
+            "detail": "Architectural joiner: Timber joints, types and production techniques: Dovetails, mortise and tenon, bridals and halvings",
+            "ksb": "K33"
+          },
+          {
+            "keyword": "Connections",
+            "detail": "Architectural joiner: Connection methods in joinery: Dowels, biscuit, staples and adhesives",
+            "ksb": "K35"
           }
         ]
       },
@@ -2250,32 +2045,12 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Manufacture",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for standard right angled timber windows",
-            "ksb": "K34"
-          },
-          {
-            "keyword": "Architectural joiner practices",
+            "keyword": "Doors windows",
             "detail": "Architectural joiner: Apply techniques and practices to the manufacture and assembly of a timber window with casement including glazing rebates and associated ironmongery",
             "ksb": "S26"
           },
           {
-            "keyword": "Architectural joiner Manufacture 2",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for standard right angled timber windows",
-            "ksb": "K34"
-          },
-          {
-            "keyword": "Architectural joiner Manufacture 3",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for standard right angled timber windows",
-            "ksb": "K34"
-          },
-          {
-            "keyword": "Architectural joiner practices 2",
-            "detail": "Architectural joiner: Apply techniques and practices to the manufacture and assembly of a timber window with casement including glazing rebates and associated ironmongery",
-            "ksb": "S26"
-          },
-          {
-            "keyword": "Architectural joiner Manufacture 4",
+            "keyword": "Knowledge Doors",
             "detail": "Architectural joiner: Manufacture and assembly techniques for standard right angled timber windows",
             "ksb": "K34"
           }
@@ -2307,34 +2082,19 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Manufacture",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for timber first fix products: 1. straight staircases 2. door frames and linings",
-            "ksb": "K36"
-          },
-          {
-            "keyword": "Architectural joiner Ironmongery",
-            "detail": "Architectural joiner: Ironmongery installation techniques",
-            "ksb": "K39"
-          },
-          {
-            "keyword": "Architectural joiner manufacture",
+            "keyword": "First fix",
             "detail": "Architectural joiner: Apply manufacture and assembly techniques for first fix products: 1. straight staircases, 2. door frames and linings",
             "ksb": "S27"
           },
           {
-            "keyword": "Architectural joiner Manufacture 2",
+            "keyword": "Knowledge First",
             "detail": "Architectural joiner: Manufacture and assembly techniques for timber first fix products: 1. straight staircases 2. door frames and linings",
             "ksb": "K36"
           },
           {
-            "keyword": "Architectural joiner Ironmongery 2",
+            "keyword": "Ironmongery",
             "detail": "Architectural joiner: Ironmongery installation techniques",
             "ksb": "K39"
-          },
-          {
-            "keyword": "Architectural joiner Manufacture 3",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for timber first fix products: 1. straight staircases 2. door frames and linings",
-            "ksb": "K36"
           }
         ]
       },
@@ -2366,32 +2126,22 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Manufacture",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for timber first fix products: 1. straight staircases 2. door frames and linings",
-            "ksb": "K36"
-          },
-          {
-            "keyword": "Architectural joiner Manufacture 2",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
-            "ksb": "K37"
-          },
-          {
-            "keyword": "Architectural joiner manufacture",
+            "keyword": "First fix",
             "detail": "Architectural joiner: Apply manufacture and assembly techniques for first fix products: 1. straight staircases, 2. door frames and linings",
             "ksb": "S27"
           },
           {
-            "keyword": "Architectural joiner manufacture 2",
+            "keyword": "Unit installation",
             "detail": "Architectural joiner: Apply manufacture and assembly techniques for second fix products: 1. timber doors, 2. wall and floor units, 3. timber mouldings, 4. staircase spindles and balustrades",
             "ksb": "S28"
           },
           {
-            "keyword": "Architectural joiner Manufacture 3",
+            "keyword": "Knowledge First",
             "detail": "Architectural joiner: Manufacture and assembly techniques for timber first fix products: 1. straight staircases 2. door frames and linings",
             "ksb": "K36"
           },
           {
-            "keyword": "Architectural joiner Manufacture 4",
+            "keyword": "Knowledge Unit",
             "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
             "ksb": "K37"
           }
@@ -2425,32 +2175,22 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Manufacture",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
-            "ksb": "K37"
-          },
-          {
-            "keyword": "Architectural joiner Requirements",
-            "detail": "Architectural joiner: Requirements of fire door assemblies",
-            "ksb": "K30"
-          },
-          {
-            "keyword": "Architectural joiner manufacture",
+            "keyword": "Unit installation",
             "detail": "Architectural joiner: Apply manufacture and assembly techniques for second fix products: 1. timber doors, 2. wall and floor units, 3. timber mouldings, 4. staircase spindles and balustrades",
             "ksb": "S28"
           },
           {
-            "keyword": "Architectural joiner Fit",
+            "keyword": "Doors windows",
             "detail": "Architectural joiner: Fit ironmongery including door locks, door handles, door hinges, latches and draw runners",
             "ksb": "S29"
           },
           {
-            "keyword": "Architectural joiner Manufacture 2",
+            "keyword": "Knowledge Unit",
             "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
             "ksb": "K37"
           },
           {
-            "keyword": "Architectural joiner Requirements 2",
+            "keyword": "Knowledge Doors",
             "detail": "Architectural joiner: Requirements of fire door assemblies",
             "ksb": "K30"
           }
@@ -2482,34 +2222,19 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Manufacture",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
-            "ksb": "K37"
-          },
-          {
-            "keyword": "Architectural joiner Finishing",
-            "detail": "Architectural joiner: Finishing techniques for manufactured timber products: Sanding, painting, waxing, polishing, oiling and applying preservative",
-            "ksb": "K38"
-          },
-          {
-            "keyword": "Architectural joiner manufacture",
+            "keyword": "Unit installation",
             "detail": "Architectural joiner: Apply manufacture and assembly techniques for second fix products: 1. timber doors, 2. wall and floor units, 3. timber mouldings, 4. staircase spindles and balustrades",
             "ksb": "S28"
           },
           {
-            "keyword": "Architectural joiner Manufacture 2",
+            "keyword": "Knowledge Unit",
             "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
             "ksb": "K37"
           },
           {
-            "keyword": "Architectural joiner Finishing 2",
+            "keyword": "Surface finishing",
             "detail": "Architectural joiner: Finishing techniques for manufactured timber products: Sanding, painting, waxing, polishing, oiling and applying preservative",
             "ksb": "K38"
-          },
-          {
-            "keyword": "Architectural joiner Manufacture 3",
-            "detail": "Architectural joiner: Manufacture and assembly techniques for second fix timber products: 1. timber wall and floor units 2. timber doors 3. timber mouldings",
-            "ksb": "K37"
           }
         ]
       },
@@ -2537,32 +2262,12 @@ window.APP_COURSES = [
         ],
         "statementPrompts": [
           {
-            "keyword": "Architectural joiner Safe",
-            "detail": "Architectural joiner: Safe use of fixed machinery, inspection, preparation and operation techniques: Crosscut saw, band saw, planer and thicknesser and mortiser",
-            "ksb": "K31"
-          },
-          {
-            "keyword": "Architectural joiner Inspect",
+            "keyword": "Machine checks",
             "detail": "Architectural joiner: Inspect, prepare and operate fixed machinery",
             "ksb": "S30"
           },
           {
-            "keyword": "Architectural joiner Safe 2",
-            "detail": "Architectural joiner: Safe use of fixed machinery, inspection, preparation and operation techniques: Crosscut saw, band saw, planer and thicknesser and mortiser",
-            "ksb": "K31"
-          },
-          {
-            "keyword": "Architectural joiner Safe 3",
-            "detail": "Architectural joiner: Safe use of fixed machinery, inspection, preparation and operation techniques: Crosscut saw, band saw, planer and thicknesser and mortiser",
-            "ksb": "K31"
-          },
-          {
-            "keyword": "Architectural joiner Inspect 2",
-            "detail": "Architectural joiner: Inspect, prepare and operate fixed machinery",
-            "ksb": "S30"
-          },
-          {
-            "keyword": "Architectural joiner Safe 4",
+            "keyword": "Machine safety",
             "detail": "Architectural joiner: Safe use of fixed machinery, inspection, preparation and operation techniques: Crosscut saw, band saw, planer and thicknesser and mortiser",
             "ksb": "K31"
           }
