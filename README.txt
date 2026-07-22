@@ -1,15 +1,9 @@
-APPRENTICE+ — GITHUB READY
+Apprentice+ Build 1.6
 
-Upload every file in this folder directly to the ROOT of your GitHub repository.
-Do not create extra folders.
+Upload every file in this ZIP directly to the root of the GitHub repository.
+Do not place the files in additional folders.
 
-Then open repository Settings > Pages > Deploy from a branch > main / root.
-
-Included courses:
-- Bricklayer ST0095 v1.2
-- Site Carpentry ST0264 v1.4
-- Architectural Joiner ST0264 v1.4
-
-The app stores entered evidence locally on the phone/browser.
-
-Build 1.5: automatic service-worker updates and a Settings > Check for updates button.
+Build 1.6 adds a reliable version checker in Settings with installed/latest versions,
+update status, Download update and Restart app controls. It also removes the misleading
+"already installed" message. Installation now uses Chrome's install prompt when available,
+or gives the correct Add to Home screen instructions.

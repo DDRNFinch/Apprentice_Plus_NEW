@@ -3,7 +3,7 @@ const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>[...p.querySelect
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){localStorage.setItem(k,JSON.stringify(v))}};
 let state=store.get('applus-state',{name:'Apprentice',courseId:'brick',xp:0,completed:{},drafts:{},rewards:[],tab:'home'});
 let view={tab:state.tab||'home',courseId:state.courseId||'brick',assignment:null,apprenticeshipTab:state.apprenticeshipTab||'assignments'};
-const APP_VERSION='1.5';
+const APP_VERSION='1.6';
 let deferredInstallPrompt=null;
 let swRegistration=null;
 let refreshingForUpdate=false;
@@ -117,36 +117,79 @@ function renderAssignment(){
   $('#complete').onclick=()=>{let nowReady=words(d.text)>=100&&a.statementPrompts.filter(p=>promptHit(d.text,concisePrompt(p))).length===6&&d.photos.filter(Boolean).length===6;if(!nowReady)return;if(!state.completed[key(a)]){state.completed[key(a)]={date:new Date().toISOString(),title:a.title,course:course().name};state.xp=(state.xp||0)+1000;save();toast('Assignment completed — 1,000 XP awarded')}setTimeout(()=>{view.assignment=null;render()},700)};
 }
 function renderDocuments(){let entries=Object.entries(state.completed);shell('Documents',`<div class="card"><h2>Assignment documents</h2><p class="muted">Completed evidence can be opened and printed or saved as a PDF from your browser.</p></div>${entries.length?`<div class="list">${entries.map(([k,v])=>`<div class="assignment" data-doc="${k}"><div class="num">✓</div><div class="grow"><h3>${esc(v.course)} — ${esc(v.title)}</h3><div class="muted">Completed ${new Date(v.date).toLocaleDateString()}</div></div><span>›</span></div>`).join('')}</div>`:`<div class="card empty">No completed assignments yet.</div>`}`);$$('[data-doc]').forEach(x=>x.onclick=()=>{let [cid,num]=x.dataset.doc.split(/-(?=\d+$)/);view.courseId=cid;view.assignment=Number(num);renderAssignment();setTimeout(()=>window.print(),300)})}
-function renderSettings(){shell('Settings',`<div class="card"><h2>Profile</h2><div class="form-row"><label>Apprentice name</label><input id="name" value="${esc(state.name)}"></div><div class="form-row"><label>Selected course</label><select id="setCourse">${APP_COURSES.map(c=>`<option value="${c.id}" ${c.id===view.courseId?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><button class="btn btn-primary" id="saveSettings">Save settings</button></div><div class="card update-card"><h2>App updates</h2><p class="muted">Current version: Build ${APP_VERSION}. Check GitHub for the newest files without clearing Chrome history.</p><button class="btn btn-primary" id="checkUpdates">Check for updates</button><p class="install-note" id="updateNote">The app also checks automatically whenever it opens.</p></div><div class="card"><h2>App data</h2><p class="muted">Your evidence is stored locally on this device.</p><button class="btn btn-secondary" id="export">Export backup</button> <button class="btn btn-danger" id="reset">Reset app</button></div><div class="card install-card"><h2>Install Apprentice+</h2><p class="muted">Install the full app version directly onto this phone for quick access and offline use.</p><button class="btn btn-primary" id="installApp">Install app</button><p class="install-note" id="installNote"></p></div>`);
+function renderSettings(){
+  shell('Settings',`<div class="card"><h2>Profile</h2><div class="form-row"><label>Apprentice name</label><input id="name" value="${esc(state.name)}"></div><div class="form-row"><label>Selected course</label><select id="setCourse">${APP_COURSES.map(c=>`<option value="${c.id}" ${c.id===view.courseId?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><button class="btn btn-primary" id="saveSettings">Save settings</button></div><div class="card update-card"><h2>App updates</h2><div class="version-grid"><div><span>Installed</span><b>Build ${APP_VERSION}</b></div><div><span>Latest on GitHub</span><b id="latestVersion">Not checked</b></div></div><div class="update-status" id="updateStatus">Checking for updates…</div><button class="btn btn-primary" id="checkUpdates">Check for updates</button><button class="btn btn-secondary" id="downloadUpdate" hidden>Download update</button><button class="btn btn-secondary" id="restartApp" hidden>Restart app</button><p class="install-note">Apprentice+ checks GitHub whenever it opens. Your saved evidence remains on this phone.</p></div><div class="card"><h2>App data</h2><p class="muted">Your evidence is stored locally on this device.</p><button class="btn btn-secondary" id="export">Export backup</button> <button class="btn btn-danger" id="reset">Reset app</button></div><div class="card install-card"><h2>Install Apprentice+</h2><p class="muted">Add Apprentice+ to your phone for full-screen access and offline use.</p><button class="btn btn-primary" id="installApp">Install app</button><p class="install-note" id="installNote">Chrome will show the installation option when it is available.</p></div>`);
   $('#saveSettings').onclick=()=>{state.name=$('#name').value.trim()||'Apprentice';view.courseId=$('#setCourse').value;save();toast('Settings saved');render()};
   $('#export').onclick=()=>{let b=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='apprentice-plus-backup.json';a.click();URL.revokeObjectURL(u)};
   $('#reset').onclick=()=>{if(confirm('Delete all local Apprentice+ data?')){localStorage.removeItem('applus-state');location.reload()}};
-  $('#checkUpdates').onclick=async()=>{
-    const button=$('#checkUpdates'),note=$('#updateNote');
-    button.disabled=true;button.textContent='Checking…';note.textContent='Checking GitHub for a newer build…';
+
+  const latestEl=$('#latestVersion'),statusEl=$('#updateStatus'),checkBtn=$('#checkUpdates'),downloadBtn=$('#downloadUpdate'),restartBtn=$('#restartApp');
+  let latestVersion=APP_VERSION;
+  const checkForUpdates=async(manual=false)=>{
+    checkBtn.disabled=true;checkBtn.textContent='Checking…';statusEl.className='update-status';statusEl.textContent='Checking GitHub for the newest build…';downloadBtn.hidden=true;restartBtn.hidden=true;
     try{
       const response=await fetch(`version.json?t=${Date.now()}`,{cache:'no-store'});
-      const latest=response.ok?await response.json():null;
+      if(!response.ok)throw new Error('Version file unavailable');
+      const latest=await response.json();
+      latestVersion=String(latest.version||APP_VERSION);
+      latestEl.textContent=`Build ${latestVersion}`;
       const reg=swRegistration||await navigator.serviceWorker?.getRegistration();
-      if(reg){await reg.update();if(reg.waiting){note.textContent='Update found. Installing now…';reg.waiting.postMessage({type:'SKIP_WAITING'});return}}
-      if(latest&&latest.version!==APP_VERSION){note.textContent=`Build ${latest.version} is available. Reloading the newest version…`;setTimeout(()=>location.reload(),500);return}
-      note.textContent=`Build ${APP_VERSION} is up to date.`;
-    }catch(error){note.textContent='Could not check right now. Check your internet connection and try again.'}
-    finally{button.disabled=false;button.textContent='Check for updates'}
+      if(reg)await reg.update();
+      if(latestVersion!==APP_VERSION||reg?.waiting){
+        statusEl.className='update-status available';statusEl.textContent=`Update available: Build ${latestVersion}.`;
+        downloadBtn.hidden=false;
+      }else{
+        statusEl.className='update-status current';statusEl.textContent=`Build ${APP_VERSION} is up to date.`;
+      }
+    }catch(error){
+      latestEl.textContent='Unable to check';statusEl.className='update-status error';statusEl.textContent='Could not check GitHub. Check your connection and try again.';
+      if(manual)toast('Update check failed');
+    }finally{checkBtn.disabled=false;checkBtn.textContent='Check for updates'}
   };
+  checkBtn.onclick=()=>checkForUpdates(true);
+  downloadBtn.onclick=async()=>{
+    downloadBtn.disabled=true;downloadBtn.textContent='Downloading…';statusEl.className='update-status';statusEl.textContent='Downloading the latest Apprentice+ files…';
+    try{
+      const reg=swRegistration||await navigator.serviceWorker?.getRegistration();
+      if(!reg)throw new Error('Service worker unavailable');
+      await reg.update();
+      let waiting=reg.waiting;
+      if(!waiting&&reg.installing){
+        waiting=reg.installing;
+        await new Promise(resolve=>{const done=()=>{if(waiting.state==='installed'){waiting.removeEventListener('statechange',done);resolve()}};waiting.addEventListener('statechange',done);setTimeout(resolve,8000)});
+      }
+      statusEl.className='update-status ready';statusEl.textContent='Update downloaded. Restart Apprentice+ to use it.';
+      restartBtn.hidden=false;downloadBtn.hidden=true;
+    }catch(error){
+      statusEl.className='update-status error';statusEl.textContent='The update could not be downloaded. Try again in a moment.';
+      downloadBtn.disabled=false;downloadBtn.textContent='Download update';
+    }
+  };
+  restartBtn.onclick=async()=>{
+    const reg=swRegistration||await navigator.serviceWorker?.getRegistration();
+    if(reg?.waiting){reg.waiting.postMessage({type:'SKIP_WAITING'});statusEl.textContent='Restarting Apprentice+…';setTimeout(()=>location.reload(),1200)}else{location.reload()}
+  };
+
   $('#installApp').onclick=async()=>{
     const note=$('#installNote');
-    if(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone){note.textContent='Apprentice+ is already installed on this phone.';return}
-    if(deferredInstallPrompt){deferredInstallPrompt.prompt();const result=await deferredInstallPrompt.userChoice;note.textContent=result.outcome==='accepted'?'Apprentice+ is being installed.':'Installation was cancelled.';deferredInstallPrompt=null;return}
-    note.textContent='Open this page in Chrome, then press Install app again.';
+    if(deferredInstallPrompt){
+      deferredInstallPrompt.prompt();
+      const result=await deferredInstallPrompt.userChoice;
+      note.textContent=result.outcome==='accepted'?'Installation started.':'Installation was cancelled.';
+      deferredInstallPrompt=null;
+      return;
+    }
+    note.textContent='In Chrome, open the three-dot menu and choose “Add to Home screen” or “Install app”.';
   };
+  checkForUpdates(false);
 }
 if('serviceWorker'in navigator){
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshingForUpdate)return;refreshingForUpdate=true;location.reload()});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(!refreshingForUpdate)return;
+    location.reload();
+  });
   navigator.serviceWorker.register('service-worker.js',{updateViaCache:'none'}).then(reg=>{
     swRegistration=reg;
-    if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});
-    reg.addEventListener('updatefound',()=>{const worker=reg.installing;if(!worker)return;worker.addEventListener('statechange',()=>{if(worker.state==='installed'&&navigator.serviceWorker.controller)worker.postMessage({type:'SKIP_WAITING'})})});
     reg.update().catch(()=>{});
   }).catch(()=>{});
 }

@@ -25,3 +25,4 @@
 .photo-full-description p{margin:0;line-height:1.5;font-size:15px;white-space:normal;overflow-wrap:anywhere}
 .chooser-help{margin:4px 2px 8px}
 .modal-card{max-height:90vh;overflow-y:auto}
+.version-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.version-grid>div{padding:15px;border:1px solid #d8ebe6;border-radius:18px;background:#f7fcfa}.version-grid span{display:block;font-size:.78rem;color:#69827e;margin-bottom:4px}.version-grid b{color:#073f43}.update-status{padding:14px 16px;margin:0 0 14px;border-radius:16px;background:#eef7f4;color:#315f5b;font-weight:700}.update-status.current{background:#e6f9ed;color:#087440}.update-status.available{background:#efffdd;color:#386900}.update-status.ready{background:#e7f8f1;color:#08745d}.update-status.error{background:#fff0f0;color:#a52828}.update-card .btn{width:100%;margin-top:10px}
